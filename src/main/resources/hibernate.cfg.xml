@@ -5,7 +5,7 @@
     <session-factory>
         <!-- JDBC Database connection settings -->
         <property name="connection.driver_class">org.h2.Driver</property>
-        <property name="connection.url">jdbc:h2:tcp://localhost/./projectdatabase;AUTO_SERVER=TRUE</property>
+        <property name="connection.url">jdbc:h2:tcp://192.168.56.1:8082/./projectdatabase;AUTO_SERVER=TRUE</property>
         <property name="connection.username">sa</property>
         <property name="connection.password">sa</property>
         
