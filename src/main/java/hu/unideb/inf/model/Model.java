@@ -43,18 +43,19 @@ public class Model {
         //Add the genres and movies
         
         List<Movie> list = new ArrayList<>();
-        BufferedReader br = new BufferedReader(new FileReader("data/combinedMovieData.txt"));
+        BufferedReader br = new BufferedReader(new FileReader("data\\combinedMovieData.txt"));
         String theline;
         br.readLine();
         while((theline = br.readLine())!=null){
             String[] values =theline.split(",",-1);
-            //This one doesn't work
+            if(!values[3].isBlank() || !values[3].isEmpty()){
             String[] avalues = values[3].split(Pattern.quote("|"),-1);
             Movie movie = new Movie(values[1],Integer.parseInt(values[2]),Double.parseDouble(values[4]));
             for(int i=0;i<avalues.length;i++){
                 movie.addGenre(new Genre(avalues[i]));
             }
             list.add(movie);
+            }
         }
         
         br.close();

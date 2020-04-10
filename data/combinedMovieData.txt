@@ -5737,7 +5737,6 @@ movieID,movieName,year,genre,averageRating
 112450,They Came Together ,2014,Comedy|Romance,2.0
 112460,Planes: Fire & Rescue ,2014,Adventure|Animation|Comedy,2.3
 112497,Tammy ,2014,Comedy,2.0
-112552,Whiplash ,2014,Drama,4.0
 112556,Gone Girl ,2014,Drama|Thriller,3.7
 112623,Dawn of the Planet of the Apes ,2014,Sci-Fi,3.4
 112727,Deliver Us from Evil ,2014,Crime|Horror|Thriller,3.0
@@ -6346,7 +6345,6 @@ movieID,movieName,year,genre,averageRating
 145951,Bloodsport: The Dark Kumite ,1999,Action|Thriller,0.5
 145994,Formula of Love ,1984,Comedy,5.0
 146024,A Man from Boulevard des Capucines ,1987,Comedy|Romance|Western,4.0
-146028,The Adventures of Sherlock Holmes and Dr. Watson: The Hound of the Baskervilles ,1981,Crime|Mystery,4.0
 146210,Blue Mountain State: The Rise of Thadland ,2015,Comedy,3.0
 146244,Dil To Pagal Hai ,1997,Comedy|Drama|Romance,4.0
 146309,The Boy and the Beast ,2015,Action|Adventure|Animation,4.0
@@ -6533,7 +6531,6 @@ movieID,movieName,year,genre,averageRating
 159690,Teenage Mutant Ninja Turtles: Out of the Shadows ,2016,Action|Adventure|Comedy,2.0
 159717,The Fundamentals of Caring ,2016,Drama,3.8
 159755,Popstar: Never Stop Never Stopping ,2016,Comedy,2.8
-159779,A Midsummer Night's Dream ,2016,,4.0
 159811,The Bremen Town Musicians ,1969,Animation|Drama|Fantasy,5.0
 159817,Planet Earth ,2006,Documentary,4.2
 159849,Bo Burnham: Make Happy ,2016,Comedy,2.5
@@ -6565,7 +6562,6 @@ movieID,movieName,year,genre,averageRating
 160954,Nerve ,2016,Drama|Thriller,2.6
 160978,Hellevator ,2004,Horror|Sci-Fi,1.0
 160980,Sully ,2016,Drama,3.2
-161008,The Forbidden Dance ,1990,,2.5
 161024,Jim Jefferies: Freedumb ,2016,Comedy,4.5
 161032,The Grandmother ,1970,Action|Drama,2.5
 161044,Webmaster ,1998,Sci-Fi,3.0
@@ -6628,7 +6624,6 @@ movieID,movieName,year,genre,averageRating
 165343,The Rocky Horror Picture Show: Let's Do the Time Warp Again ,2016,Comedy|Horror|Sci-Fi|Thriller,1.5
 165347,Jack Reacher: Never Go Back ,2016,Action|Crime|Drama|Mystery|Thriller,2.0
 165483,Joe Rogan: Triggered ,2016,Comedy,4.0
-165489,Ethel & Ernest ,2016,,2.5
 165529,Flowers for Algernon ,2000,Drama,2.0
 165549,Manchester by the Sea ,2016,Drama,2.9
 165551,Lion ,2016,Drama,4.5
@@ -6691,7 +6686,6 @@ movieID,movieName,year,genre,averageRating
 168632,Bill Burr: Walk Your Way Out ,2017,Comedy,4.0
 168712,Fifty Shades Darker ,2017,Drama|Romance,1.0
 168846,Neal Brennan: 3 Mics ,2017,Comedy,4.5
-169034,Lemonade ,2016,,4.5
 169180,American Fable ,2017,Thriller,2.5
 169670,The Void ,2016,Horror,1.5
 169904,Guyver: Dark Hero ,1994,Sci-Fi,2.0
@@ -6742,14 +6736,12 @@ movieID,movieName,year,genre,averageRating
 172253,The Night Before ,1988,Comedy,3.0
 172321,Late Night with Conan O'Brien: The Best of Triumph the Insult Comic Dog ,2004,Comedy,2.0
 172461,Get Me Roger Stone ,2017,Documentary,3.0
-172497,T2 3-D: Battle Across Time ,1996,,4.0
 172547,Despicable Me 3 ,2017,Adventure|Animation|Children|Comedy,2.3
 172577,Last Year's Snow Was Falling ,1983,Animation|Children|Comedy|Fantasy,5.0
 172583,Investigation Held by Kolobki ,1986,Animation,5.0
 172585,Karlson Returns ,1970,Adventure|Animation|Children,5.0
 172587,Vacations in Prostokvashino ,1980,Animation,5.0
 172589,Winter in Prostokvashino ,1984,Animation,5.0
-172591,The Godfather Trilogy: 1972-1990 ,1992,,4.8
 172637,Priklyucheniya Kapitana Vrungelya ,1979,Action|Adventure|Animation|Comedy,5.0
 172705,Tickling Giants ,2017,Documentary,5.0
 172793,Vovka in the Kingdom of Far Far Away ,1965,Adventure|Animation|Children|Fantasy,5.0
@@ -6780,7 +6772,6 @@ movieID,movieName,year,genre,averageRating
 174053,Black Mirror: White Christmas ,2014,Drama|Horror|Mystery|Sci-Fi|Thriller,4.8
 174055,Dunkirk ,2017,Action|Drama|Thriller|War,3.4
 174141,Belladonna of Sadness ,1973,Animation|Drama|Fantasy,3.5
-174403,The Putin Interviews ,2017,,2.5
 174479,Unedited Footage of a Bear ,2014,Horror|Thriller,4.0
 174551,Obsession ,1965,Comedy,5.0
 174727,Good Time ,2017,Crime|Drama,3.0
