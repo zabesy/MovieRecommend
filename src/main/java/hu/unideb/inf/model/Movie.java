@@ -6,11 +6,16 @@
 package hu.unideb.inf.model;
 
 
+import java.util.HashSet;
+import java.util.Set;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -18,6 +23,72 @@ import javax.persistence.Table;
 public class Movie {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private int id;
+    private String movieName;
+    private int year;
+    private double rating;
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "movie_id")
+    private Set<Genre> genres = new HashSet<>();
+
+    public void addGenre(Genre a) {
+        genres.add(a);
+    }
+
+    public Set<Genre> getGenres() {
+        return genres;
+    }
+
+    public Movie(String movieName, int year, double rating) {
+        this.movieName = movieName;
+        this.year = year;
+        this.rating = rating;
+    }
+    
+    public Movie(){
+        
+    }
+    
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getMovieName() {
+        return movieName;
+    }
+
+    public void setMovieName(String movieName) {
+        this.movieName = movieName;
+    }
+
+    public int getYear() {
+        return year;
+    }
+
+    public void setYear(int year) {
+        this.year = year;
+    }
+
+    public double getRating() {
+        return rating;
+    }
+
+    public void setRating(double rating) {
+        this.rating = rating;
+    }
+    
+    @Override
+    public String toString() {
+        return "Movie{" + "id=" + id + ", movieName=" + movieName + ", year=" + year + ", rating=" + rating + ", genres=" + genres + '}';
+    }
+    
+    
+    /*@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private int id;
@@ -90,7 +161,10 @@ public class Movie {
     public String toString() {
         return "Movie{" + "id=" + id + ", movieName=" + movieName + ", year=" + year + ", genre=" + genre + ", rating=" + rating + '}';
     }
+    */
+
     
+
     
 
 }
