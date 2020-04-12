@@ -8,6 +8,7 @@ package hu.unideb.inf.model;
 import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -26,16 +27,16 @@ import org.hibernate.annotations.CascadeType;
 public class Genre implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(unique = true)
     private int id;
     @Column(unique = false)
     private String genre;
     
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @Cascade(CascadeType.ALL)
     @JoinColumn(name = "movie_id")
-    private Movie movie = null;
+    private Movie movie;
 
+    
     public int getId() {
         return id;
     }
@@ -67,6 +68,12 @@ public class Genre implements Serializable{
     public Genre(){
         
     }
+
+    @Override
+    public String toString() {
+        return "Genre{" + "genre=" + genre + '}';
+    }
+    
     
     
     

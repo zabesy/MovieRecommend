@@ -6,7 +6,9 @@
 package hu.unideb.inf.model;
 
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -19,7 +21,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "movie")
+@Table(name = "movies")
 public class Movie {
 
     @Id
@@ -30,13 +32,13 @@ public class Movie {
     private double rating;
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "movie_id")
-    private Set<Genre> genres = new HashSet<>();
+    private List<Genre> genres = new ArrayList<>();
 
     public void addGenre(Genre a) {
         genres.add(a);
     }
 
-    public Set<Genre> getGenres() {
+    public List<Genre> getGenres() {
         return genres;
     }
 

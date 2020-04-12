@@ -13,6 +13,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Pattern;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
@@ -21,12 +23,14 @@ import org.hibernate.Transaction;
  * @author adam-
  */
 public class Model {
-    private Movie movie;
+    //private Movie movie;
     Transaction transaction = null;
-    
-    public Movie getMovie(){
+    private ObservableList<Movie> list;
+    /*public Movie getMovie(){
         return movie;
-    }
+    }*/
+    
+    
 
     public Model() throws FileNotFoundException, IOException {
         /*try (Session session = HibernateUtil.getSessionFactory().openSession()) {
@@ -75,6 +79,7 @@ public class Model {
         
         
     }
+    
     
     
     
