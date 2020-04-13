@@ -27,8 +27,9 @@ import org.hibernate.annotations.CascadeType;
 public class Genre implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private int id;
-    @Column(unique = false)
+    @Column(name = "genre",unique = false)
     private String genre;
     
     @ManyToOne(fetch = FetchType.LAZY)

@@ -33,7 +33,7 @@ public class FXMLMovieSceneController implements Initializable {
     @FXML
     void newStage(ActionEvent event) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/FXMLDisplayer.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/MovieRecommend/src/main/resources/fxml/FXMLDisplayer.fxml"));
             Parent root = (Parent)loader.load();
             FXMLDisplayerController otherController = loader.getController();
             //Which 'search' function to be used

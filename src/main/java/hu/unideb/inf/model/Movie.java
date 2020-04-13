@@ -26,9 +26,13 @@ public class Movie {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id")
     private int id;
+    @Column(name = "movie_name")
     private String movieName;
+    @Column(name = "year")
     private int year;
+    @Column(name = "rating")
     private double rating;
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "movie_id")

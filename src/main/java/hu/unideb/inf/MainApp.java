@@ -1,13 +1,25 @@
 package hu.unideb.inf;
 
+import hu.unideb.inf.model.Genre;
 import hu.unideb.inf.model.Model;
+import hu.unideb.inf.model.Movie;
+import hu.unideb.inf.util.HibernateUtil;
 import hu.unideb.inf.view.FXMLMovieSceneController;
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.regex.Pattern;
 import javafx.application.Application;
 import static javafx.application.Application.launch;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import org.hibernate.Session;
+import org.hibernate.Transaction;
 
 
 public class MainApp extends Application {
@@ -32,7 +44,7 @@ public class MainApp extends Application {
      *
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
+    public static void main(String[] args){
         launch(args);
     }
 
