@@ -5,7 +5,6 @@
  */
 package hu.unideb.inf.view;
 
-import hu.unideb.inf.model.Model;
 import hu.unideb.inf.model.Movie;
 import hu.unideb.inf.util.HibernateUtil;
 import java.net.URL;
@@ -28,6 +27,9 @@ import org.hibernate.query.Query;
  */
 public class FXMLDisplayerController implements Initializable {
     
+    private String genreField;
+    private String yearField;
+    
     @FXML
     private TableView<Movie> table;
     
@@ -43,10 +45,10 @@ public class FXMLDisplayerController implements Initializable {
     @FXML
     private TableColumn<Movie, Double> ratingColumn;
     
-    //@FXML
-    //private TableColumn<Movie, String> genreColumn;
+    @FXML
+    private TableColumn<Movie, String> genreColumn;
     
-    public ObservableList<Movie> list = null;
+    public ObservableList<Movie> list;
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -54,7 +56,18 @@ public class FXMLDisplayerController implements Initializable {
         movieNameColumn.setCellValueFactory(new PropertyValueFactory<Movie, String>("movieName"));
         yearColumn.setCellValueFactory(new PropertyValueFactory<Movie, Integer>("year"));
         ratingColumn.setCellValueFactory(new PropertyValueFactory<Movie, Double>("rating"));
-        //genreColumn.setCellValueFactory(new PropertyValueFactory<Movie, String>("genre"));
+        genreColumn.setCellValueFactory(new PropertyValueFactory<Movie, String>("genre"));
+        if(!(genreField.isEmpty()) && !(yearField.isEmpty())){
+            search(genreField, Integer.parseInt(yearField));
+        }
+        else{
+            if(genreField.isEmpty()){
+                search(Integer.parseInt(yearField));
+            }
+            else{
+                search(genreField);
+            }
+        }
         table.setItems(this.list);
     }
     
@@ -77,7 +90,6 @@ public class FXMLDisplayerController implements Initializable {
         } catch (Exception e) {
             e.printStackTrace();
         }
-    
     }
     
     /*public void start(ObservableList<Movie> list){
@@ -87,6 +99,22 @@ public class FXMLDisplayerController implements Initializable {
         rating.setCellValueFactory(new PropertyValueFactory<Movie, Double>("rating"));
         table.setItems(list);
     }*/
+
+    public String getGenreField() {
+        return genreField;
+    }
+
+    public void setGenreField(String genreField) {
+        this.genreField = genreField;
+    }
+
+    public String getYearField() {
+        return yearField;
+    }
+
+    public void setYearField(String yearField) {
+        this.yearField = yearField;
+    }
     
     
     

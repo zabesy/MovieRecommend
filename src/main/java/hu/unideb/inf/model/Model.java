@@ -25,7 +25,6 @@ import org.hibernate.Transaction;
 public class Model {
     //private Movie movie;
     Transaction transaction = null;
-    private ObservableList<Movie> list;
     /*public Movie getMovie(){
         return movie;
     }*/

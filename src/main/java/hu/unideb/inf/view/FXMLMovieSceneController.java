@@ -12,7 +12,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
@@ -35,10 +34,12 @@ public class FXMLMovieSceneController implements Initializable {
     void newStage(ActionEvent event) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/FXMLDisplayer.fxml"));
-            Parent root = (Parent) loader.load();
+            Parent root = (Parent)loader.load();
             FXMLDisplayerController otherController = loader.getController();
             //Which 'search' function to be used
-            if(genreField.getText().isEmpty()){
+            otherController.setGenreField(genreField.getText());
+            otherController.setYearField(yearField.getText());
+            /*if(genreField.getText().isEmpty()){
                 otherController.search(Integer.parseInt(yearField.getText()));
             }
             else{
@@ -48,7 +49,7 @@ public class FXMLMovieSceneController implements Initializable {
                 else{
                     otherController.search(genreField.getText(),Integer.parseInt(yearField.getText()));
                 }
-            }
+            }*/
             Stage stage = new Stage();
             stage.setScene(new Scene(root));
             stage.show();
