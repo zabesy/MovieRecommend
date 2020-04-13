@@ -28,6 +28,7 @@ public class MainApp extends Application {
     public void start(Stage stage) throws Exception {
         FXMLLoader loader = new FXMLLoader(MainApp.class.getResource("/fxml/FXMLMovieScene.fxml"));
         Scene scene = new Scene(loader.load());
+        scene.getStylesheets().add("/StyleSheet.css");
         stage.setTitle("Movies");
         stage.setScene(scene);
         
@@ -44,7 +45,38 @@ public class MainApp extends Application {
      *
      * @param args the command line arguments
      */
-    public static void main(String[] args){
+    public static void main(String[] args) throws FileNotFoundException, IOException{
+        List<Movie> list = new ArrayList<>();
+        BufferedReader br = new BufferedReader(new FileReader("data\\combinedMovieData.txt"));
+        String theline;
+        br.readLine();
+        while((theline = br.readLine())!=null){
+            String[] values =theline.split(",",-1);
+            if(!values[3].isBlank() || !values[3].isEmpty()){
+            String[] avalues = values[3].split(Pattern.quote("|"),-1);
+            Movie movie = new Movie(values[1],Integer.parseInt(values[2]),Double.parseDouble(values[4]));
+            for(int i=0;i<avalues.length;i++){
+                movie.addGenre(new Genre(avalues[i]));
+            }
+            list.add(movie);
+            }
+        }
+        
+        br.close();
+        Transaction transaction = null;
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+            transaction = session.beginTransaction();
+            for(Movie a:list){
+                session.save(a);
+            }
+            transaction.commit();
+        } catch (Exception e) {
+            if (transaction != null) {
+                transaction.rollback();
+            }
+            e.printStackTrace();
+        }
+        
         launch(args);
     }
 

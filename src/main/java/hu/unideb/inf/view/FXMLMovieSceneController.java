@@ -1,5 +1,6 @@
 package hu.unideb.inf.view;
 
+import hu.unideb.inf.MainApp;
 import hu.unideb.inf.model.Model;
 import java.io.IOException;
 import java.net.URL;
@@ -33,26 +34,27 @@ public class FXMLMovieSceneController implements Initializable {
     @FXML
     void newStage(ActionEvent event) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/MovieRecommend/src/main/resources/fxml/FXMLDisplayer.fxml"));
+            FXMLLoader loader = new FXMLLoader(MainApp.class.getResource("/fxml/FXMLDisplayer.fxml"));
             Parent root = (Parent)loader.load();
             FXMLDisplayerController otherController = loader.getController();
+            
             //Which 'search' function to be used
-            otherController.setGenreField(genreField.getText());
-            otherController.setYearField(yearField.getText());
-            /*if(genreField.getText().isEmpty()){
-                otherController.search(Integer.parseInt(yearField.getText()));
+            
+            if(!(this.genreField.getText().isEmpty()) && !(this.yearField.getText().isEmpty())){
+            otherController.search(this.genreField.getText(), Integer.parseInt(this.yearField.getText()));
             }
             else{
-                if(yearField.getText().isEmpty()){
-                    otherController.search(genreField.getText());
+                if(this.genreField.getText().isEmpty()){
+                    otherController.search(Integer.parseInt(this.yearField.getText()));
                 }
                 else{
-                    otherController.search(genreField.getText(),Integer.parseInt(yearField.getText()));
+                otherController.search(this.genreField.getText());
                 }
-            }*/
+            }
             Stage stage = new Stage();
             stage.setScene(new Scene(root));
             stage.show();
+            
         } catch (IOException ex) {
             Logger.getLogger(FXMLMovieSceneController.class.getName()).log(Level.SEVERE, null, ex);
         }

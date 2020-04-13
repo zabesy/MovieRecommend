@@ -32,7 +32,7 @@ public class Genre implements Serializable{
     @Column(name = "genre",unique = false)
     private String genre;
     
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     @Cascade(CascadeType.ALL)
     @JoinColumn(name = "movie_id")
     private Movie movie;
@@ -72,7 +72,7 @@ public class Genre implements Serializable{
 
     @Override
     public String toString() {
-        return "Genre{" + "genre=" + genre + '}';
+        return genre;
     }
     
     
