@@ -50,9 +50,9 @@ public class FXMLMovieSceneController implements Initializable {
                 otherController.search(this.genreField.getText());
                 }
             }*/
-           /* Scene scene = new scene(root);
+          /*  Scene scene = new scene(root);
             scene.setScene ;
-            scene.show();*/
+            scene.show()*/
 
   
             

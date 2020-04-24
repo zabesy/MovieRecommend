@@ -1,7 +1,7 @@
-hu\unideb\inf\view\FXMLDisplayerController.class
-hu\unideb\inf\MainApp.class
 hu\unideb\inf\model\Genre.class
-hu\unideb\inf\model\Model.class
 hu\unideb\inf\view\FXMLMovieSceneController.class
 hu\unideb\inf\model\Movie.class
+hu\unideb\inf\view\FXMLDisplayerController.class
+hu\unideb\inf\MainApp.class
+hu\unideb\inf\model\Model.class
 hu\unideb\inf\util\HibernateUtil.class

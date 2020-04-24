@@ -28,15 +28,15 @@ public class MainApp extends Application {
     @Override
     public void start(Stage stage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("/fxml/FXMLMovieScene.fxml"));
-       
+        stage.initStyle(StageStyle.TRANSPARENT);
        
        Scene scene = new Scene(root);
-       //stage.setTitle("Movies");
+       scene.setFill(javafx.scene.paint.Color.TRANSPARENT);
         stage.setScene(scene);
+        stage.show();
         
-        //((FXMLMovieSceneController)loader.getController()).setModel(new Model());
-        stage.initStyle(StageStyle.TRANSPARENT);
-        scene.setFill(javafx.scene.paint.Color.TRANSPARENT);
+    
+        
     }
 
     /**
