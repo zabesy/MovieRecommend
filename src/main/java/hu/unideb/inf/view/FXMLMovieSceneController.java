@@ -24,23 +24,22 @@ public class FXMLMovieSceneController implements Initializable {
         this.model = model;
     }
     
+      @Override
+    public void initialize(URL url, ResourceBundle rb) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
-    @FXML
-    private TextField genreField;
 
-    @FXML
-    private TextField yearField;
-
-    @FXML
+    /*@FXML
     void newStage(ActionEvent event) {
         try {
-            FXMLLoader loader = new FXMLLoader(MainApp.class.getResource("/fxml/FXMLDisplayer.fxml"));
-            Parent root = (Parent)loader.load();
-            FXMLDisplayerController otherController = loader.getController();
+          Parent root = FXMLLoader.load(getClass().getResource("/fxml/FXMLMovieScene.fxml"));
+            //Parent root = (Parent)loader.load();
+           // FXMLDisplayerController otherController = loader.getController();
             
             //Which 'search' function to be used
             
-            if(!(this.genreField.getText().isEmpty()) && !(this.yearField.getText().isEmpty())){
+         /*   if(!(this.genreField.getText().isEmpty()) && !(this.yearField.getText().isEmpty())){
             otherController.search(this.genreField.getText(), Integer.parseInt(this.yearField.getText()));
             }
             else{
@@ -50,19 +49,16 @@ public class FXMLMovieSceneController implements Initializable {
                 else{
                 otherController.search(this.genreField.getText());
                 }
-            }
-            Stage stage = new Stage();
-            stage.setScene(new Scene(root));
-            stage.show();
+            }*/
+          /*  Scene scene = new scene(root);
+            scene.setScene ;
+            scene.show()*/
+
+  
             
-        } catch (IOException ex) {
+     /*   } catch (IOException ex) {
             Logger.getLogger(FXMLMovieSceneController.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        }*/
     }
 
-    @Override
-    public void initialize(URL url, ResourceBundle rb) {
-        
-    }    
-
-}
+  

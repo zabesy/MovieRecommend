@@ -18,6 +18,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
@@ -26,15 +27,16 @@ public class MainApp extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-        FXMLLoader loader = new FXMLLoader(MainApp.class.getResource("/fxml/FXMLMovieScene.fxml"));
-        Scene scene = new Scene(loader.load());
-        scene.getStylesheets().add("/StyleSheet.css");
-        stage.setTitle("Movies");
+        Parent root = FXMLLoader.load(getClass().getResource("/fxml/FXMLMovieScene.fxml"));
+        stage.initStyle(StageStyle.TRANSPARENT);
+       
+       Scene scene = new Scene(root);
+       scene.setFill(javafx.scene.paint.Color.TRANSPARENT);
         stage.setScene(scene);
-        
-        ((FXMLMovieSceneController)loader.getController()).setModel(new Model());
-        
         stage.show();
+        
+    
+        
     }
 
     /**
