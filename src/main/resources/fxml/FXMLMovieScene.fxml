@@ -1,24 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="494.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <AnchorPane fx:id="TopBar" layoutX="-1.0" prefHeight="46.0" prefWidth="494.0" style="-fx-background-color: #e64a19;">
          <children>
-            <ImageView fitHeight="34.0" fitWidth="44.0" layoutX="31.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="Btn_Welcome" fitHeight="34.0" fitWidth="44.0" layoutX="31.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@Icons/Film.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="46.0" fitWidth="45.0" layoutX="140.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="Btn_Search" fitHeight="46.0" fitWidth="45.0" layoutX="140.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@Icons/Search.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="45.0" fitWidth="45.0" layoutX="255.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="Btn_Info" fitHeight="45.0" fitWidth="45.0" layoutX="255.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@Icons/Info.png" />
                </image>
@@ -29,8 +31,25 @@
                </image>
             </ImageView>
          </children></AnchorPane>
-      <AnchorPane fx:id="Welcome" layoutX="-1.0" layoutY="62.0" prefHeight="439.0" prefWidth="494.0" style="-fx-background-color: #607d8b;" />
       <AnchorPane fx:id="Search" layoutX="-1.0" layoutY="61.0" prefHeight="439.0" prefWidth="494.0" style="-fx-background-color: #607d8b;" />
       <AnchorPane fx:id="Info" layoutX="-1.0" layoutY="63.0" prefHeight="439.0" prefWidth="494.0" style="-fx-background-color: #607d8b;" />
+      <AnchorPane fx:id="Welcome" layoutX="-1.0" layoutY="62.0" prefHeight="439.0" prefWidth="494.0" style="-fx-background-color: #607d8b;">
+         <children>
+            <Label layoutX="25.0" prefHeight="226.0" prefWidth="463.0" text="Welcome To MovieFinder" textFill="WHITE">
+               <font>
+                  <Font name="Ink Free" size="43.0" />
+               </font>
+            </Label>
+            <Label layoutX="70.0" layoutY="202.0" text="Please Click On the button!!" textFill="#fff5f5">
+               <font>
+                  <Font name="MV Boli" size="15.0" />
+               </font>
+            </Label>
+            <ImageView fx:id="Btn_Play" fitHeight="150.0" fitWidth="200.0" layoutX="162.0" layoutY="259.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Icons/Play.png" />
+               </image>
+            </ImageView>
+         </children></AnchorPane>
    </children>
 </AnchorPane>
