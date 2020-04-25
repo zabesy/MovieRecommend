@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.InnerShadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -102,11 +103,6 @@
                   <Image url="@Icons/happy.png" />
                </image>
             </ImageView>
-            <ChoiceBox fx:id="GenreChoice" layoutX="162.0" layoutY="137.0" prefHeight="5.0" prefWidth="122.0">
-               <effect>
-                  <InnerShadow choke="0.67" color="#ff861c" radius="15.9575" width="44.83" />
-               </effect>
-            </ChoiceBox>
             <Label layoutX="14.0" layoutY="244.0" prefHeight="50.0" prefWidth="112.0" text="Year">
                <font>
                   <Font name="Ink Free" size="40.0" />
@@ -120,24 +116,6 @@
                   </LinearGradient>
                </textFill>
             </Label>
-            <ChoiceBox layoutX="155.0" layoutY="269.0" prefHeight="26.0" prefWidth="122.0">
-               <effect>
-                  <InnerShadow choke="0.72" color="#ff8d00" radius="12.98" width="32.92">
-                     <input>
-                        <InnerShadow />
-                     </input>
-                  </InnerShadow>
-               </effect>
-            </ChoiceBox>
-            <ChoiceBox layoutX="350.0" layoutY="269.0" prefHeight="26.0" prefWidth="122.0">
-               <effect>
-                  <InnerShadow choke="0.72" color="#ff8d00" radius="12.98" width="32.92">
-                     <input>
-                        <InnerShadow />
-                     </input>
-                  </InnerShadow>
-               </effect>
-            </ChoiceBox>
             <Label layoutX="306.0" layoutY="274.0" text="to">
                <textFill>
                   <LinearGradient endY="1.0">
@@ -169,6 +147,21 @@
                   </LinearGradient>
                </textFill>
             </Label>
+            <TextField fx:id="YearTextField1" layoutX="118.0" layoutY="277.0">
+               <effect>
+                  <InnerShadow choke="0.44" color="#ff5100" radius="14.17" width="37.68" />
+               </effect>
+            </TextField>
+            <TextField fx:id="YearTextFeild2" layoutX="337.0" layoutY="277.0">
+               <effect>
+                  <InnerShadow choke="0.28" color="#ff4000" radius="12.98" width="32.92" />
+               </effect>
+            </TextField>
+            <ListView fx:id="GenreListView" layoutX="150.0" layoutY="74.0" prefHeight="138.0" prefWidth="176.0">
+               <effect>
+                  <InnerShadow blurType="ONE_PASS_BOX" choke="0.69" color="#ff6200" height="62.71" radius="26.384999999999998" width="44.83" />
+               </effect>
+            </ListView>
          </children>
       </AnchorPane>
       <AnchorPane fx:id="Info" layoutX="-1.0" layoutY="63.0" onDragDetected="#handleButtonAction" prefHeight="439.0" prefWidth="494.0" style="-fx-background-color: #607d8b;" visible="false">

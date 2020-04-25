@@ -15,7 +15,9 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.ListView;
+import javafx.scene.control.SelectionMode;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -23,8 +25,12 @@ import javafx.stage.Stage;
 import javafx.scene.layout.AnchorPane;
 
 public class FXMLMovieSceneController implements Initializable {
-    ObservableList list =FXCollections.observableArrayList();   
+    ObservableList list =  FXCollections.observableArrayList("Action","Comedy","Children","Drama","Sci-fi","Thriller","Adventure","Animation"
+    ,"Fantasy","Romance","Crime","Horror","Mystery","Documentary","War","Western");
+    
     private Model model;
+
+   
     
     public void setModel(Model model){
         this.model = model;
@@ -34,7 +40,7 @@ public class FXMLMovieSceneController implements Initializable {
     private ImageView Btn_Welcome,Btn_Search,Btn_Info,Btn_SearchFinder,Btn_Exit,Btn_Play;
     
     @FXML
-    private ChoiceBox<String> GenreChoice;
+    private ListView GenreListView;
     
     
      @FXML
@@ -53,7 +59,9 @@ public class FXMLMovieSceneController implements Initializable {
             Search.setVisible(true);
             Welcome.setVisible(false);
             Info.setVisible(false);
-            
+           // if(event.getTarget()==Btn_SearchFinder){
+            //function
+            //}
             }else 
                 if(event.getTarget() == Btn_Info){
                 Info.setVisible(true);
@@ -72,12 +80,14 @@ public class FXMLMovieSceneController implements Initializable {
     
       @Override
     public void initialize(URL url, ResourceBundle rb) {
-       loaddata();
+       GenreListView.getItems().addAll(list);
+        GenreListView.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
+      
     }
-    public void loaddata(){
+   /* public void loaddata(){
    
-    GenreChoice.getItems().addAll("Action","Comedy","Children");
-    }
+    GenreCombobox.getItems().addAll("Action","Comedy","Children");
+    }*/
 
     /*@FXML
     void newStage(ActionEvent event) {
