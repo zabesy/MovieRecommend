@@ -16,6 +16,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.ListView;
+import javafx.scene.control.SelectionMode;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -23,7 +25,9 @@ import javafx.stage.Stage;
 import javafx.scene.layout.AnchorPane;
 
 public class FXMLMovieSceneController implements Initializable {
-    ObservableList list =  FXCollections.observableArrayList("Action","Comedy","Children","Drama","Sci-fi","Thriller");   
+    ObservableList list =  FXCollections.observableArrayList("Action","Comedy","Children","Drama","Sci-fi","Thriller","Adventure","Animation"
+    ,"Fantasy","Romance","Crime","Horror","Mystery","Documentary","War","Western");
+    
     private Model model;
 
    
@@ -36,7 +40,7 @@ public class FXMLMovieSceneController implements Initializable {
     private ImageView Btn_Welcome,Btn_Search,Btn_Info,Btn_SearchFinder,Btn_Exit,Btn_Play;
     
     @FXML
-    private ComboBox GenreCombobox;
+    private ListView GenreListView;
     
     
      @FXML
@@ -76,7 +80,9 @@ public class FXMLMovieSceneController implements Initializable {
     
       @Override
     public void initialize(URL url, ResourceBundle rb) {
-       GenreCombobox.getItems().addAll(list);
+       GenreListView.getItems().addAll(list);
+        GenreListView.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
+      
     }
    /* public void loaddata(){
    

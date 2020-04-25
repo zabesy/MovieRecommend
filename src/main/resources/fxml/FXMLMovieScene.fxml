@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.InnerShadow?>
 <?import javafx.scene.image.Image?>
@@ -98,11 +98,6 @@
                   </LinearGradient>
                </textFill>
             </Label>
-            <ComboBox fx:id="GenreCombobox" layoutX="156.0" layoutY="137.0" prefWidth="150.0">
-               <effect>
-                  <InnerShadow blurType="GAUSSIAN" choke="0.39" color="#ff4d00" />
-               </effect>
-            </ComboBox>
             <ImageView fitHeight="62.0" fitWidth="68.0" layoutX="349.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@Icons/happy.png" />
@@ -162,6 +157,11 @@
                   <InnerShadow choke="0.28" color="#ff4000" radius="12.98" width="32.92" />
                </effect>
             </TextField>
+            <ListView fx:id="GenreListView" layoutX="150.0" layoutY="74.0" prefHeight="138.0" prefWidth="176.0">
+               <effect>
+                  <InnerShadow blurType="ONE_PASS_BOX" choke="0.69" color="#ff6200" height="62.71" radius="26.384999999999998" width="44.83" />
+               </effect>
+            </ListView>
          </children>
       </AnchorPane>
       <AnchorPane fx:id="Info" layoutX="-1.0" layoutY="63.0" onDragDetected="#handleButtonAction" prefHeight="439.0" prefWidth="494.0" style="-fx-background-color: #607d8b;" visible="false">
