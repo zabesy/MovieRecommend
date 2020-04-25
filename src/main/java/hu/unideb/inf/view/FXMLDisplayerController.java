@@ -55,15 +55,9 @@ public class FXMLDisplayerController implements Initializable {
     }
     
     
-    public void search(String theGenre, int theYear){
-    }
-    
-    public void search(int theYear){
-    }
-    
-    public void search(String theGenre){
+    public void search(List listan, String afrom, String ato){
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
-            String hqlstatement = "select b from Movie b join b.genres a where a.genre = '" + theGenre + "'";
+            String hqlstatement = "select b from Movie b join b.genres a where a.genre = '" + "Comedy" + "'";
             List<Movie> movies = session.createQuery(hqlstatement, Movie.class).list();
             ObservableList<Movie> amovies = FXCollections.observableArrayList();
             for(int i=0;i<movies.size();i++){
@@ -82,6 +76,28 @@ public class FXMLDisplayerController implements Initializable {
             e.printStackTrace();
         }
     }
+    
+    
+    public void search(List alist, String afrom){
+        
+    }
+    
+    public void search(List alist){
+        
+    }
+    
+    public void search(String afrom){
+        
+    }
+    
+    public void search(String afrom, String ato){
+        
+    }
+    
+    public void search(){
+        
+    }
+    
     
     
     
