@@ -152,7 +152,7 @@
                   <InnerShadow choke="0.44" color="#ff5100" radius="14.17" width="37.68" />
                </effect>
             </TextField>
-            <TextField fx:id="YearTextFeild2" layoutX="337.0" layoutY="277.0">
+            <TextField fx:id="YearTextField2" layoutX="337.0" layoutY="277.0">
                <effect>
                   <InnerShadow choke="0.28" color="#ff4000" radius="12.98" width="32.92" />
                </effect>

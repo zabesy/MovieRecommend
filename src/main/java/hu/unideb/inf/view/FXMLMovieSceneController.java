@@ -4,6 +4,8 @@ import hu.unideb.inf.MainApp;
 import hu.unideb.inf.model.Model;
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -25,16 +27,19 @@ import javafx.stage.Stage;
 import javafx.scene.layout.AnchorPane;
 
 public class FXMLMovieSceneController implements Initializable {
-    ObservableList list =  FXCollections.observableArrayList("Action","Comedy","Children","Drama","Sci-fi","Thriller","Adventure","Animation"
-    ,"Fantasy","Romance","Crime","Horror","Mystery","Documentary","War","Western");
     
     private Model model;
 
-   
-    
     public void setModel(Model model){
         this.model = model;
     }
+    
+    ObservableList list =  FXCollections.observableArrayList("Action","Comedy","Children", 
+                                                             "Drama","Sci-fi","Thriller",
+                                                             "Adventure","Animation","Fantasy",
+                                                             "Romance","Crime","Horror",
+                                                             "Mystery","Documentary","War","Western");
+    
     
     @FXML
     private ImageView Btn_Welcome,Btn_Search,Btn_Info,Btn_SearchFinder,Btn_Exit,Btn_Play;
@@ -42,8 +47,10 @@ public class FXMLMovieSceneController implements Initializable {
     @FXML
     private ListView GenreListView;
     
+    @FXML
+    private TextField YearTextField1,YearTextField2;
     
-     @FXML
+    @FXML
     private AnchorPane Welcome,Search,Info;
      
       @FXML 
@@ -53,71 +60,96 @@ public class FXMLMovieSceneController implements Initializable {
             Welcome.setVisible(true);
             Search.setVisible(false);
             Info.setVisible(false);
-            
-        }else
-            if(event.getTarget() == Btn_Search){
+        }
+        
+        if(event.getTarget() == Btn_Search){
             Search.setVisible(true);
             Welcome.setVisible(false);
             Info.setVisible(false);
-           // if(event.getTarget()==Btn_SearchFinder){
-            //function
-            //}
-            }else 
-                if(event.getTarget() == Btn_Info){
-                Info.setVisible(true);
-                Welcome.setVisible(false);
-                Search.setVisible(false);
-                
-                }else
-                    if(event.getTarget() == Btn_Play){
-                    Search.setVisible(true);
-                    Welcome.setVisible(false);
-                    Info.setVisible(false);
-                    
-                    }
+        }
+        
+        if(event.getTarget() == Btn_Info){
+            Info.setVisible(true);
+            Welcome.setVisible(false);
+            Search.setVisible(false);    
+        }
+        
+        if(event.getTarget() == Btn_Play){
+        Search.setVisible(true);
+        Welcome.setVisible(false);
+        Info.setVisible(false);
+        }
+        
+        if(event.getTarget() == Btn_SearchFinder) other();
     
     }
     
-      @Override
+    @Override
     public void initialize(URL url, ResourceBundle rb) {
        GenreListView.getItems().addAll(list);
-        GenreListView.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
-      
+       GenreListView.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
     }
-   /* public void loaddata(){
-   
-    GenreCombobox.getItems().addAll("Action","Comedy","Children");
-    }*/
-
-    /*@FXML
-    void newStage(ActionEvent event) {
-        try {
-          Parent root = FXMLLoader.load(getClass().getResource("/fxml/FXMLMovieScene.fxml"));
-            //Parent root = (Parent)loader.load();
-           // FXMLDisplayerController otherController = loader.getController();
+    
+     
+    public void other(){
+        try{
+            FXMLLoader loader = new FXMLLoader(MainApp.class.getResource("/fxml/FXMLDisplayer.fxml"));
+            Parent root = (Parent)loader.load();
+            FXMLDisplayerController otherController = loader.getController();
             
-            //Which 'search' function to be used
             
-         /*   if(!(this.genreField.getText().isEmpty()) && !(this.yearField.getText().isEmpty())){
-            otherController.search(this.genreField.getText(), Integer.parseInt(this.yearField.getText()));
+            List<String> listan = GenreListView.getSelectionModel().getSelectedItems();
+            
+            
+            if(listan.isEmpty() && (YearTextField1.getText().isEmpty() || YearTextField1.getText().isBlank()) && (YearTextField2.getText().isEmpty() || YearTextField2.getText().isBlank())){
+                otherController.search();
             }
             else{
-                if(this.genreField.getText().isEmpty()){
-                    otherController.search(Integer.parseInt(this.yearField.getText()));
+                if(listan.isEmpty() && (YearTextField1.getText().isEmpty() || YearTextField1.getText().isBlank())){
+                    otherController.search();
                 }
                 else{
-                otherController.search(this.genreField.getText());
+                    if(listan.isEmpty()){
+                        if((YearTextField1.getText().isEmpty() || YearTextField1.getText().isBlank())){
+                            //Here the first year field and list is empty so here should be an alarm
+                        }
+                        else{
+                            if((YearTextField2.getText().isEmpty() || YearTextField2.getText().isBlank())){
+                                otherController.search(YearTextField1.getText());
+                            }
+                            else{
+                                otherController.search(YearTextField1.getText(),YearTextField2.getText());
+                            }
+                        }
+                    }
+                    else{
+                        if(YearTextField1.getText().isEmpty() || YearTextField1.getText().isBlank()){
+                            otherController.search(listan);
+                        }
+                        else{
+                            if(YearTextField2.getText().isEmpty() || YearTextField2.getText().isBlank()){
+                                otherController.search(listan,YearTextField1.getText());
+                            }
+                            else{
+                                otherController.search(listan,YearTextField1.getText(),YearTextField2.getText());
+                            }
+                        }
+                    }
                 }
-            }*/
-          /*  Scene scene = new scene(root);
-            scene.setScene ;
-            scene.show()*/
-
-  
+            }
             
-     /*   } catch (IOException ex) {
-            Logger.getLogger(FXMLMovieSceneController.class.getName()).log(Level.SEVERE, null, ex);
-        }*/
+            
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root));
+            stage.show();
+
+
+            }catch (IOException ex) {
+                Logger.getLogger(FXMLMovieSceneController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+     
+     
     }
 
   
