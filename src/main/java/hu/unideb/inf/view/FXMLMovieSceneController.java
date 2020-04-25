@@ -7,6 +7,8 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -21,7 +23,7 @@ import javafx.stage.Stage;
 import javafx.scene.layout.AnchorPane;
 
 public class FXMLMovieSceneController implements Initializable {
-    
+    ObservableList list =FXCollections.observableArrayList();   
     private Model model;
     
     public void setModel(Model model){
@@ -30,6 +32,9 @@ public class FXMLMovieSceneController implements Initializable {
     
     @FXML
     private ImageView Btn_Welcome,Btn_Search,Btn_Info,Btn_SearchFinder,Btn_Exit,Btn_Play;
+    
+    @FXML
+    private ChoiceBox<String> GenreChoice;
     
     
      @FXML
@@ -67,9 +72,12 @@ public class FXMLMovieSceneController implements Initializable {
     
       @Override
     public void initialize(URL url, ResourceBundle rb) {
-       
+       loaddata();
     }
-    
+    public void loaddata(){
+   
+    GenreChoice.getItems().addAll("Action","Comedy","Children");
+    }
 
     /*@FXML
     void newStage(ActionEvent event) {
