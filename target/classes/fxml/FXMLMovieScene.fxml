@@ -35,7 +35,7 @@
                </image>
             </ImageView>
          </children></AnchorPane>
-      <AnchorPane fx:id="Welcome" layoutX="-1.0" layoutY="62.0" prefHeight="439.0" prefWidth="494.0" style="-fx-background-color: #607d8b;">
+      <AnchorPane fx:id="Welcome" layoutX="-1.0" layoutY="62.0" prefHeight="439.0" prefWidth="494.0" style="-fx-background-color: #607d8b;" visible="false">
          <children>
             <Label layoutX="25.0" prefHeight="226.0" prefWidth="463.0" text="Welcome To MovieFinder">
                <font>
@@ -63,7 +63,7 @@
                   </LinearGradient>
                </textFill>
             </Label>
-            <ImageView fx:id="Btn_Play" fitHeight="150.0" fitWidth="200.0" layoutX="162.0" layoutY="259.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="Btn_Play" fitHeight="150.0" fitWidth="200.0" layoutX="162.0" layoutY="259.0" onMousePressed="#handleButtonAction" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@Icons/Play.png" />
                </image>

@@ -63,7 +63,7 @@
                   </LinearGradient>
                </textFill>
             </Label>
-            <ImageView fx:id="Btn_Play" fitHeight="150.0" fitWidth="200.0" layoutX="162.0" layoutY="259.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="Btn_Play" fitHeight="150.0" fitWidth="200.0" layoutX="162.0" layoutY="259.0" onMousePressed="#handleButtonAction" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@Icons/Play.png" />
                </image>
