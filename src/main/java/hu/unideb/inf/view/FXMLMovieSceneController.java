@@ -43,18 +43,19 @@ public class FXMLMovieSceneController implements Initializable {
       @FXML 
     private void handleButtonAction(MouseEvent event){
         
-        if(event.getTarget() == Btn_Welcome){
+        /*if(event.getTarget() == Btn_Welcome){
             Welcome.setVisible(true);
             Search.setVisible(false);
             Info.setVisible(false);
             
-        }else
+        }else{
             if(event.getTarget() == Btn_Search){
             Search.setVisible(true);
             Welcome.setVisible(false);
             Info.setVisible(false);
-            
-            }else 
+            if(event.getTarget() == Btn_SearchFinder){
+                other();
+            }
                 if(event.getTarget() == Btn_Info){
                 Info.setVisible(true);
                 Welcome.setVisible(false);
@@ -66,8 +67,30 @@ public class FXMLMovieSceneController implements Initializable {
                     Welcome.setVisible(false);
                     Info.setVisible(false);
                     
-                    }
-    
+                    }*/
+        if(event.getTarget() == Btn_Welcome){
+            Welcome.setVisible(true);
+            Search.setVisible(false);
+            Info.setVisible(false);
+        }
+        if(event.getTarget() == Btn_Search){
+            Search.setVisible(true);
+            Welcome.setVisible(false);
+            Info.setVisible(false);
+        }
+        if(event.getTarget() == Btn_Info){
+            Info.setVisible(true);
+            Welcome.setVisible(false);
+            Search.setVisible(false);     
+        }
+        if(event.getTarget() == Btn_Play){
+            Search.setVisible(true);
+            Welcome.setVisible(false);
+            Info.setVisible(false);       
+        }
+        if(event.getTarget() == Btn_SearchFinder){
+                other();
+        }
     }
     
       @Override
@@ -79,6 +102,42 @@ public class FXMLMovieSceneController implements Initializable {
     GenreChoice.getItems().addAll("Action","Comedy","Children");
     }
 
+    public void other(){
+        try{
+            FXMLLoader loader = new FXMLLoader(MainApp.class.getResource("/fxml/FXMLDisplayer.fxml"));
+            Parent root = (Parent)loader.load();
+            FXMLDisplayerController otherController = loader.getController();
+            System.out.println("HERLLO");
+            //Which 'search' function to be used
+            otherController.search();
+            /*if(!(this.genreField.getText().isEmpty()) && !(this.yearField.getText().isEmpty())){
+            otherController.search(this.genreField.getText(), Integer.parseInt(this.yearField.getText()));
+            }
+            else{
+                if(this.genreField.getText().isEmpty()){
+                    otherController.search(Integer.parseInt(this.yearField.getText()));
+                }
+                else{
+                otherController.search(this.genreField.getText());
+                }
+            }
+            Scene scene = new scene(root);
+            scene.setScene ;
+            scene.show()*/
+            
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root));
+            stage.show();
+
+           
+        }
+         catch (IOException ex) {
+            Logger.getLogger(FXMLMovieSceneController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    
+    
     /*@FXML
     void newStage(ActionEvent event) {
         try {
