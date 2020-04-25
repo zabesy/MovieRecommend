@@ -1,36 +1,216 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.InnerShadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="494.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane fx:id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="494.0" stylesheets="@../Cascade.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hu.unideb.inf.view.FXMLMovieSceneController">
    <children>
       <AnchorPane fx:id="TopBar" layoutX="-1.0" prefHeight="46.0" prefWidth="494.0" style="-fx-background-color: #e64a19;">
          <children>
-            <ImageView fitHeight="34.0" fitWidth="44.0" layoutX="31.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="Btn_Welcome" fitHeight="34.0" fitWidth="44.0" layoutX="31.0" layoutY="9.0" onMousePressed="#handleButtonAction" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@Icons/Film.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="46.0" fitWidth="45.0" layoutX="140.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="Btn_Search" fitHeight="46.0" fitWidth="45.0" layoutX="140.0" layoutY="4.0" onMousePressed="#handleButtonAction" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@Icons/Search.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="45.0" fitWidth="45.0" layoutX="255.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="Btn_Info" fitHeight="45.0" fitWidth="45.0" layoutX="255.0" layoutY="4.0" onMousePressed="#handleButtonAction" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@Icons/Info.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="45.0" fitWidth="55.0" layoutX="434.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="Btn_Exit" fitHeight="45.0" fitWidth="55.0" layoutX="434.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@Icons/Exit.png" />
                </image>
             </ImageView>
          </children></AnchorPane>
-      <AnchorPane fx:id="Welcome" layoutX="-1.0" layoutY="62.0" prefHeight="439.0" prefWidth="494.0" style="-fx-background-color: #607d8b;" />
-      <AnchorPane fx:id="Search" layoutX="-1.0" layoutY="61.0" prefHeight="439.0" prefWidth="494.0" style="-fx-background-color: #607d8b;" />
-      <AnchorPane fx:id="Info" layoutX="-1.0" layoutY="63.0" prefHeight="439.0" prefWidth="494.0" style="-fx-background-color: #607d8b;" />
+      <AnchorPane fx:id="Welcome" layoutX="-1.0" layoutY="62.0" prefHeight="439.0" prefWidth="494.0" style="-fx-background-color: #607d8b;" visible="false">
+         <children>
+            <Label layoutX="25.0" prefHeight="226.0" prefWidth="463.0" text="Welcome To MovieFinder">
+               <font>
+                  <Font name="Ink Free" size="43.0" />
+               </font>
+               <textFill>
+                  <LinearGradient endX="1.0" endY="1.0" startX="0.42748093150044214">
+                     <stops>
+                        <Stop color="#ff5303" />
+                        <Stop color="WHITE" offset="1.0" />
+                     </stops>
+                  </LinearGradient>
+               </textFill>
+            </Label>
+            <Label layoutX="70.0" layoutY="202.0" text="Please Click On the button!!">
+               <font>
+                  <Font name="MV Boli" size="15.0" />
+               </font>
+               <textFill>
+                  <LinearGradient endX="1.0" endY="1.0" startX="0.42748093150044214">
+                     <stops>
+                        <Stop color="#ff5303" />
+                        <Stop color="WHITE" offset="1.0" />
+                     </stops>
+                  </LinearGradient>
+               </textFill>
+            </Label>
+            <ImageView fx:id="Btn_Play" fitHeight="150.0" fitWidth="200.0" layoutX="162.0" layoutY="259.0" onMousePressed="#handleButtonAction" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Icons/Play.png" />
+               </image>
+            </ImageView>
+         </children></AnchorPane>
+      <AnchorPane fx:id="Search" layoutX="-1.0" layoutY="61.0" onDragDetected="#handleButtonAction" prefHeight="439.0" prefWidth="494.0" style="-fx-background-color: #607d8b;" visible="false">
+         <children>
+            <Label layoutX="22.0" layoutY="14.0" prefHeight="34.0" prefWidth="298.0" text="Please choose Your Genre And Year">
+               <font>
+                  <Font name="Ink Free" size="20.0" />
+               </font>
+               <textFill>
+                  <LinearGradient endY="1.0">
+                     <stops>
+                        <Stop color="#ff4500" />
+                        <Stop color="WHITE" offset="1.0" />
+                     </stops>
+                  </LinearGradient>
+               </textFill>
+            </Label>
+            <Label layoutX="14.0" layoutY="104.0" prefHeight="50.0" prefWidth="122.0" text="Genre">
+               <font>
+                  <Font name="Ink Free" size="40.0" />
+               </font>
+               <textFill>
+                  <LinearGradient endY="1.0">
+                     <stops>
+                        <Stop color="#ff4500" />
+                        <Stop color="WHITE" offset="1.0" />
+                     </stops>
+                  </LinearGradient>
+               </textFill>
+            </Label>
+            <ImageView fitHeight="62.0" fitWidth="68.0" layoutX="349.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Icons/happy.png" />
+               </image>
+            </ImageView>
+            <ChoiceBox layoutX="162.0" layoutY="137.0" prefHeight="5.0" prefWidth="122.0">
+               <effect>
+                  <InnerShadow choke="0.67" color="#ff861c" radius="15.9575" width="44.83" />
+               </effect>
+            </ChoiceBox>
+            <Label layoutX="14.0" layoutY="244.0" prefHeight="50.0" prefWidth="112.0" text="Year">
+               <font>
+                  <Font name="Ink Free" size="40.0" />
+               </font>
+               <textFill>
+                  <LinearGradient endY="1.0">
+                     <stops>
+                        <Stop color="#ff4500" />
+                        <Stop color="WHITE" offset="1.0" />
+                     </stops>
+                  </LinearGradient>
+               </textFill>
+            </Label>
+            <ChoiceBox layoutX="155.0" layoutY="269.0" prefHeight="26.0" prefWidth="122.0">
+               <effect>
+                  <InnerShadow choke="0.72" color="#ff8d00" radius="12.98" width="32.92">
+                     <input>
+                        <InnerShadow />
+                     </input>
+                  </InnerShadow>
+               </effect>
+            </ChoiceBox>
+            <ChoiceBox layoutX="350.0" layoutY="269.0" prefHeight="26.0" prefWidth="122.0">
+               <effect>
+                  <InnerShadow choke="0.72" color="#ff8d00" radius="12.98" width="32.92">
+                     <input>
+                        <InnerShadow />
+                     </input>
+                  </InnerShadow>
+               </effect>
+            </ChoiceBox>
+            <Label layoutX="306.0" layoutY="274.0" text="to">
+               <textFill>
+                  <LinearGradient endY="1.0">
+                     <stops>
+                        <Stop color="#ff5600" />
+                        <Stop color="WHITE" offset="1.0" />
+                     </stops>
+                  </LinearGradient>
+               </textFill>
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <ImageView fx:id="Btn_SearchFinder" fitHeight="66.0" fitWidth="68.0" layoutX="357.0" layoutY="326.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Icons/SearchFinder.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="162.0" layoutY="351.0" text="Click on the button">
+               <font>
+                  <Font name="Ink Free" size="22.0" />
+               </font>
+               <textFill>
+                  <LinearGradient endY="1.0">
+                     <stops>
+                        <Stop color="#ff5600" />
+                        <Stop color="WHITE" offset="1.0" />
+                     </stops>
+                  </LinearGradient>
+               </textFill>
+            </Label>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="Info" layoutX="-1.0" layoutY="63.0" onDragDetected="#handleButtonAction" prefHeight="439.0" prefWidth="494.0" style="-fx-background-color: #607d8b;" visible="false">
+         <children>
+            <ImageView fitHeight="76.0" fitWidth="87.0" layoutX="14.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Icons/lamp.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="14.0" layoutY="136.0" text="This Programm works with more than 16000 movies in his database">
+               <font>
+                  <Font name="Ink Free" size="15.0" />
+               </font>
+               <textFill>
+                  <LinearGradient endX="1.0" endY="1.0" startX="0.42748093150044214">
+                     <stops>
+                        <Stop color="#ff5303" />
+                        <Stop color="WHITE" offset="1.0" />
+                     </stops>
+                  </LinearGradient>
+               </textFill>
+            </Label>
+            <Label layoutX="14.0" layoutY="194.0" prefHeight="50.0" prefWidth="418.0" text="You Just need to put your Genre and Year in Search window">
+               <font>
+                  <Font name="Ink Free" size="16.0" />
+               </font>
+               <textFill>
+                  <LinearGradient endX="1.0" endY="1.0" startX="0.42748093150044214">
+                     <stops>
+                        <Stop color="#ff5303" />
+                        <Stop color="WHITE" offset="1.0" />
+                     </stops>
+                  </LinearGradient>
+               </textFill>
+            </Label>
+            <Label layoutX="418.0" layoutY="407.0" text="Version 1.0.0" />
+            <Label layoutX="24.0" layoutY="407.0" text="by THE STARKS" textFill="#ff8538">
+               <font>
+                  <Font name="Ink Free" size="14.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
    </children>
 </AnchorPane>
