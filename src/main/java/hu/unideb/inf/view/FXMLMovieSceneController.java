@@ -13,8 +13,12 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import javafx.scene.layout.AnchorPane;
 
 public class FXMLMovieSceneController implements Initializable {
     
@@ -24,9 +28,40 @@ public class FXMLMovieSceneController implements Initializable {
         this.model = model;
     }
     
+    @FXML
+    private ImageView Btn_Welcome,Btn_Search,Btn_Info,Btn_SearchFinder,Btn_Exit,Btn_Play;
+    
+    
+     @FXML
+    private AnchorPane Welcome,Search,Info;
+     
+      @FXML 
+    private void handleButtonAction(MouseEvent event){
+        
+        if(event.getTarget() == Btn_Welcome){
+            Welcome.setVisible(true);
+            Search.setVisible(false);
+            Info.setVisible(false);
+            
+        }else
+            if(event.getTarget() == Btn_Search){
+            Search.setVisible(true);
+            Welcome.setVisible(false);
+            Info.setVisible(false);
+            
+            }else 
+                if(event.getTarget() == Btn_Info){
+                Info.setVisible(true);
+                Welcome.setVisible(false);
+                Search.setVisible(false);
+                
+                }
+    
+    }
+    
       @Override
     public void initialize(URL url, ResourceBundle rb) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+       
     }
     
 

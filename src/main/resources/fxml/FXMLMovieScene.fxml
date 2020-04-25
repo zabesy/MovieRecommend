@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.effect.InnerShadow?>
@@ -11,57 +10,32 @@
 <?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="494.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane fx:id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="494.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hu.unideb.inf.view.FXMLMovieSceneController">
    <children>
       <AnchorPane fx:id="TopBar" layoutX="-1.0" prefHeight="46.0" prefWidth="494.0" style="-fx-background-color: #e64a19;">
          <children>
-            <ImageView fx:id="Btn_Welcome" fitHeight="34.0" fitWidth="44.0" layoutX="31.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="Btn_Welcome" fitHeight="34.0" fitWidth="44.0" layoutX="31.0" layoutY="9.0" onMousePressed="#handleButtonAction" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@Icons/Film.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="Btn_Search" fitHeight="46.0" fitWidth="45.0" layoutX="140.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="Btn_Search" fitHeight="46.0" fitWidth="45.0" layoutX="140.0" layoutY="4.0" onMousePressed="#handleButtonAction" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@Icons/Search.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="Btn_Info" fitHeight="45.0" fitWidth="45.0" layoutX="255.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="Btn_Info" fitHeight="45.0" fitWidth="45.0" layoutX="255.0" layoutY="4.0" onMousePressed="#handleButtonAction" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@Icons/Info.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="45.0" fitWidth="55.0" layoutX="434.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="Btn_Exit" fitHeight="45.0" fitWidth="55.0" layoutX="434.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@Icons/Exit.png" />
                </image>
             </ImageView>
          </children></AnchorPane>
-      <AnchorPane fx:id="Info" layoutX="-1.0" layoutY="63.0" prefHeight="439.0" prefWidth="494.0" style="-fx-background-color: #607d8b;">
-         <children>
-            <ImageView fitHeight="76.0" fitWidth="87.0" layoutX="14.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@Icons/lamp.png" />
-               </image>
-            </ImageView>
-            <Label layoutX="14.0" layoutY="136.0" text="This Programm works with more than 16000 movies in his database" textFill="#fffbfb">
-               <font>
-                  <Font name="Ink Free" size="15.0" />
-               </font>
-            </Label>
-            <Label layoutX="14.0" layoutY="194.0" prefHeight="50.0" prefWidth="418.0" text="You Just need to put your Genre and Year in Search window" textFill="WHITE">
-               <font>
-                  <Font name="Ink Free" size="16.0" />
-               </font>
-            </Label>
-            <Label layoutX="418.0" layoutY="407.0" text="Version 1.0.0" />
-            <Label layoutX="24.0" layoutY="407.0" text="by THE STARKS" textFill="#ff8538">
-               <font>
-                  <Font name="Ink Free" size="14.0" />
-               </font>
-            </Label>
-         </children>
-      </AnchorPane>
-      <AnchorPane fx:id="Welcome" layoutX="-1.0" layoutY="62.0" prefHeight="439.0" prefWidth="494.0" style="-fx-background-color: #607d8b;">
+      <AnchorPane fx:id="Welcome" layoutX="-1.0" layoutY="62.0" prefHeight="439.0" prefWidth="494.0" style="-fx-background-color: #607d8b;" visible="false">
          <children>
             <Label layoutX="25.0" prefHeight="226.0" prefWidth="463.0" text="Welcome To MovieFinder" textFill="WHITE">
                <font>
@@ -79,7 +53,7 @@
                </image>
             </ImageView>
          </children></AnchorPane>
-      <AnchorPane fx:id="Search" layoutX="-1.0" layoutY="61.0" prefHeight="439.0" prefWidth="494.0" style="-fx-background-color: #607d8b;">
+      <AnchorPane fx:id="Search" layoutX="-1.0" layoutY="61.0" onDragDetected="#handleButtonAction" prefHeight="439.0" prefWidth="494.0" style="-fx-background-color: #607d8b;" visible="false">
          <children>
             <Label layoutX="22.0" layoutY="14.0" prefHeight="34.0" prefWidth="298.0" text="Please choose Your Genre And Year">
                <font>
@@ -116,9 +90,6 @@
                <effect>
                   <InnerShadow choke="0.67" color="#ff861c" radius="15.9575" width="44.83" />
                </effect>
-               <cursor>
-                  <Cursor fx:constant="CROSSHAIR" />
-               </cursor>
             </ChoiceBox>
             <Label layoutX="14.0" layoutY="244.0" prefHeight="50.0" prefWidth="112.0" text="Year">
                <font>
@@ -181,6 +152,31 @@
                      </stops>
                   </LinearGradient>
                </textFill>
+            </Label>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="Info" layoutX="-1.0" layoutY="63.0" onDragDetected="#handleButtonAction" prefHeight="439.0" prefWidth="494.0" style="-fx-background-color: #607d8b;" visible="false">
+         <children>
+            <ImageView fitHeight="76.0" fitWidth="87.0" layoutX="14.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Icons/lamp.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="14.0" layoutY="136.0" text="This Programm works with more than 16000 movies in his database" textFill="#fffbfb">
+               <font>
+                  <Font name="Ink Free" size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="14.0" layoutY="194.0" prefHeight="50.0" prefWidth="418.0" text="You Just need to put your Genre and Year in Search window" textFill="WHITE">
+               <font>
+                  <Font name="Ink Free" size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="418.0" layoutY="407.0" text="Version 1.0.0" />
+            <Label layoutX="24.0" layoutY="407.0" text="by THE STARKS" textFill="#ff8538">
+               <font>
+                  <Font name="Ink Free" size="14.0" />
+               </font>
             </Label>
          </children>
       </AnchorPane>
