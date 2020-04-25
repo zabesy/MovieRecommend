@@ -102,7 +102,7 @@
                   <Image url="@Icons/happy.png" />
                </image>
             </ImageView>
-            <ChoiceBox layoutX="162.0" layoutY="137.0" prefHeight="5.0" prefWidth="122.0">
+            <ChoiceBox fx:id="GenreChoice" layoutX="162.0" layoutY="137.0" prefHeight="5.0" prefWidth="122.0">
                <effect>
                   <InnerShadow choke="0.67" color="#ff861c" radius="15.9575" width="44.83" />
                </effect>
