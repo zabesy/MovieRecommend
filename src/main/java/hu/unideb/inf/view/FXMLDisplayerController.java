@@ -54,27 +54,6 @@ public class FXMLDisplayerController implements Initializable {
         
     }
     
-    public void search(){
-        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
-            String hqlstatement = "select b from Movie b join b.genres a where a.genre = '" + "Comedy" + "'";
-            List<Movie> movies = session.createQuery(hqlstatement, Movie.class).list();
-            ObservableList<Movie> amovies = FXCollections.observableArrayList();
-            for(int i=0;i<movies.size();i++){
-                amovies.add(movies.get(i));
-            }
-            amovies.forEach(a -> System.out.println(a.toString()));
-            //this.list = amovies;
-            idColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
-            movieNameColumn.setCellValueFactory(new PropertyValueFactory<>("movieName"));
-            yearColumn.setCellValueFactory(new PropertyValueFactory<>("year"));
-            ratingColumn.setCellValueFactory(new PropertyValueFactory<>("rating"));
-            genresColumn.setCellValueFactory(new PropertyValueFactory<>("genres"));
-            table.setItems(amovies);
-            
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
     
     public void search(String theGenre, int theYear){
     }
