@@ -37,15 +37,31 @@
          </children></AnchorPane>
       <AnchorPane fx:id="Welcome" layoutX="-1.0" layoutY="62.0" prefHeight="439.0" prefWidth="494.0" style="-fx-background-color: #607d8b;" visible="false">
          <children>
-            <Label layoutX="25.0" prefHeight="226.0" prefWidth="463.0" text="Welcome To MovieFinder" textFill="WHITE">
+            <Label layoutX="25.0" prefHeight="226.0" prefWidth="463.0" text="Welcome To MovieFinder">
                <font>
                   <Font name="Ink Free" size="43.0" />
                </font>
+               <textFill>
+                  <LinearGradient endX="1.0" endY="1.0" startX="0.42748093150044214">
+                     <stops>
+                        <Stop color="#ff5303" />
+                        <Stop color="WHITE" offset="1.0" />
+                     </stops>
+                  </LinearGradient>
+               </textFill>
             </Label>
-            <Label layoutX="70.0" layoutY="202.0" text="Please Click On the button!!" textFill="#fff5f5">
+            <Label layoutX="70.0" layoutY="202.0" text="Please Click On the button!!">
                <font>
                   <Font name="MV Boli" size="15.0" />
                </font>
+               <textFill>
+                  <LinearGradient endX="1.0" endY="1.0" startX="0.42748093150044214">
+                     <stops>
+                        <Stop color="#ff5303" />
+                        <Stop color="WHITE" offset="1.0" />
+                     </stops>
+                  </LinearGradient>
+               </textFill>
             </Label>
             <ImageView fx:id="Btn_Play" fitHeight="150.0" fitWidth="200.0" layoutX="162.0" layoutY="259.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -162,15 +178,31 @@
                   <Image url="@Icons/lamp.png" />
                </image>
             </ImageView>
-            <Label layoutX="14.0" layoutY="136.0" text="This Programm works with more than 16000 movies in his database" textFill="#fffbfb">
+            <Label layoutX="14.0" layoutY="136.0" text="This Programm works with more than 16000 movies in his database">
                <font>
                   <Font name="Ink Free" size="15.0" />
                </font>
+               <textFill>
+                  <LinearGradient endX="1.0" endY="1.0" startX="0.42748093150044214">
+                     <stops>
+                        <Stop color="#ff5303" />
+                        <Stop color="WHITE" offset="1.0" />
+                     </stops>
+                  </LinearGradient>
+               </textFill>
             </Label>
-            <Label layoutX="14.0" layoutY="194.0" prefHeight="50.0" prefWidth="418.0" text="You Just need to put your Genre and Year in Search window" textFill="WHITE">
+            <Label layoutX="14.0" layoutY="194.0" prefHeight="50.0" prefWidth="418.0" text="You Just need to put your Genre and Year in Search window">
                <font>
                   <Font name="Ink Free" size="16.0" />
                </font>
+               <textFill>
+                  <LinearGradient endX="1.0" endY="1.0" startX="0.42748093150044214">
+                     <stops>
+                        <Stop color="#ff5303" />
+                        <Stop color="WHITE" offset="1.0" />
+                     </stops>
+                  </LinearGradient>
+               </textFill>
             </Label>
             <Label layoutX="418.0" layoutY="407.0" text="Version 1.0.0" />
             <Label layoutX="24.0" layoutY="407.0" text="by THE STARKS" textFill="#ff8538">
