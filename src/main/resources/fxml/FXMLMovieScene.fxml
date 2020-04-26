@@ -4,6 +4,7 @@
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.InnerShadow?>
+<?import javafx.scene.effect.PerspectiveTransform?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -162,6 +163,11 @@
                   <InnerShadow blurType="ONE_PASS_BOX" choke="0.69" color="#ff6200" height="62.71" radius="26.384999999999998" width="44.83" />
                </effect>
             </ListView>
+            <TextField fx:id="Alarm" layoutX="150.0" layoutY="400.0" prefHeight="26.0" prefWidth="122.0">
+               <effect>
+                  <PerspectiveTransform />
+               </effect>
+            </TextField>
          </children>
       </AnchorPane>
       <AnchorPane fx:id="Info" layoutX="-1.0" layoutY="63.0" onDragDetected="#handleButtonAction" prefHeight="439.0" prefWidth="494.0" style="-fx-background-color: #607d8b;" visible="false">
