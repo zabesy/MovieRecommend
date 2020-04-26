@@ -26,8 +26,9 @@ import org.hibernate.Transaction;
 
 
 public class MainApp extends Application {
-private double xoffset = 0;
-private double yoffset = 0;
+    private double xoffset = 0;
+    private double yoffset = 0;
+    
     @Override
     public void start(Stage stage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("/fxml/FXMLMovieScene.fxml"));
@@ -47,8 +48,8 @@ private double yoffset = 0;
             stage.setY(event.getScreenY()- yoffset);
            }
         });
-       Scene scene = new Scene(root);
-       scene.setFill(javafx.scene.paint.Color.TRANSPARENT);
+        Scene scene = new Scene(root);
+        scene.setFill(javafx.scene.paint.Color.TRANSPARENT);
         stage.setScene(scene);
         stage.show();
         
