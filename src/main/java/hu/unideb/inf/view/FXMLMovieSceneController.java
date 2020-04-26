@@ -105,31 +105,34 @@ public class FXMLMovieSceneController implements Initializable {
             
             if(listan.isEmpty() && (YearTextField1.getText().isEmpty() || YearTextField1.getText().isBlank()) && (YearTextField2.getText().isEmpty() || YearTextField2.getText().isBlank())){
                 otherController.search();
+                otherController.theSearch();
             }
             else{ //
                 if(listan.isEmpty() && (YearTextField1.getText().isEmpty() || YearTextField1.getText().isBlank())){
                     otherController.searchYearMax(YearTextField2.getText());
-                } 
+                    otherController.theSearch();
+                }
                 else{
                     if(listan.isEmpty()){
                         if((YearTextField1.getText().isEmpty() || YearTextField1.getText().isBlank())){
-                            //Here the first year field and list is empty so here should be an alarm
-                            // why should there be ?
-                    otherController.searchYearMax(YearTextField2.getText());
-
+                            otherController.searchYearMax(YearTextField2.getText());
+                            otherController.theSearch();
                         }
                         else{
                             if((YearTextField2.getText().isEmpty() || YearTextField2.getText().isBlank())){
                                 otherController.searchYearMin(YearTextField1.getText());
+                                otherController.theSearch();
                             }
                             else{
                                 otherController.searchMaxMin(YearTextField1.getText(),YearTextField2.getText());
+                                otherController.theSearch();
                             }
                         }
                     }
                     else{
                         if(YearTextField1.getText().isEmpty() || YearTextField1.getText().isBlank()){
                             otherController.searchYearMaxGenre(listan,YearTextField2.getText());
+                            otherController.theSearch();
                         }
                         else{
                             if(YearTextField2.getText().isEmpty() || YearTextField2.getText().isBlank()){
