@@ -9,6 +9,7 @@ import hu.unideb.inf.model.Genre;
 import hu.unideb.inf.model.Movie;
 import hu.unideb.inf.util.HibernateUtil;
 import java.net.URL;
+import java.time.Year;
 import java.util.List;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
@@ -54,10 +55,11 @@ public class FXMLDisplayerController implements Initializable {
         
     }
     
-    
+     private String hqlstatement = "";
+     
     public void search(List listan, String afrom, String ato){
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
-            String hqlstatement = "select b from Movie b join b.genres a where a.genre = '" + "Comedy" + "'";
+           //String hqlstatement = "select b from Movie b join b.genres a where a.genre = '" + "Comedy" + "'";
             List<Movie> movies = session.createQuery(hqlstatement, Movie.class).list();
             ObservableList<Movie> amovies = FXCollections.observableArrayList();
             for(int i=0;i<movies.size();i++){
@@ -78,27 +80,52 @@ public class FXMLDisplayerController implements Initializable {
     }
     
     
-    public void search(List alist, String afrom){
+    
+       
+   /* public void search(String afrom, String ato){
         
     }
-    
-    public void search(List alist){
-        
-    }
-    
-    public void search(String afrom){
-        
-    }
-    
-    public void search(String afrom, String ato){
-        
-    }
-    
+    */
+    public void searchYearMax(String max){
+       setHqlstatement("select * from Movie where year <"+max);
+                
+        }
+    public void searchYearMin(String min){
+       setHqlstatement("select * from Movie where year >"+min);
+                
+        }
+    public void searchMaxMin(String min, String max){
+       setHqlstatement("select * from Movie where year >"+min+"and year<"+max);
+                
+        }
+    public void searchYearMaxGenre(List genres, String max){
+       setHqlstatement("select * from Movie where year <"+max+"and genre =="+genres);
+                
+        }
+    public void searchYearMinGenre(List genres, String min){
+       setHqlstatement("select * from Movie where year >"+min+"and genre =="+genres);
+                
+        }
+    public void SEARCH(List genres, String min, String max){
+       setHqlstatement("select * from Movie where year >"+min+"and year<"+max+"and genre=="+genres);
+                
+        }
     public void search(){
-        
+    
+        setHqlstatement("select * from Movie");
+   
+    }
+    public String getHqlstatement() {
+        return hqlstatement;
+    }
+    public void setHqlstatement(String hqlstatement) {
+        this.hqlstatement = hqlstatement;
     }
     
     
     
     
 }
+
+
+  

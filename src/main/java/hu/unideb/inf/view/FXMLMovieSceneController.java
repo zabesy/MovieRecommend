@@ -49,6 +49,8 @@ public class FXMLMovieSceneController implements Initializable {
     
     @FXML
     private TextField YearTextField1,YearTextField2;
+    @FXML
+    private TextField Alarm;
     
     @FXML
     private AnchorPane Welcome,Search,Info;
@@ -104,34 +106,37 @@ public class FXMLMovieSceneController implements Initializable {
             if(listan.isEmpty() && (YearTextField1.getText().isEmpty() || YearTextField1.getText().isBlank()) && (YearTextField2.getText().isEmpty() || YearTextField2.getText().isBlank())){
                 otherController.search();
             }
-            else{
+            else{ //
                 if(listan.isEmpty() && (YearTextField1.getText().isEmpty() || YearTextField1.getText().isBlank())){
-                    otherController.search();
-                }
+                    otherController.searchYearMax(YearTextField2.getText());
+                } 
                 else{
                     if(listan.isEmpty()){
                         if((YearTextField1.getText().isEmpty() || YearTextField1.getText().isBlank())){
                             //Here the first year field and list is empty so here should be an alarm
+                            // why should there be ?
+                    otherController.searchYearMax(YearTextField2.getText());
+
                         }
                         else{
                             if((YearTextField2.getText().isEmpty() || YearTextField2.getText().isBlank())){
-                                otherController.search(YearTextField1.getText());
+                                otherController.searchYearMin(YearTextField1.getText());
                             }
                             else{
-                                otherController.search(YearTextField1.getText(),YearTextField2.getText());
+                                otherController.searchMaxMin(YearTextField1.getText(),YearTextField2.getText());
                             }
                         }
                     }
                     else{
                         if(YearTextField1.getText().isEmpty() || YearTextField1.getText().isBlank()){
-                            otherController.search(listan);
+                            otherController.searchYearMaxGenre(listan,YearTextField2.getText());
                         }
                         else{
                             if(YearTextField2.getText().isEmpty() || YearTextField2.getText().isBlank()){
-                                otherController.search(listan,YearTextField1.getText());
+                                otherController.searchYearMinGenre(listan,YearTextField1.getText());
                             }
                             else{
-                                otherController.search(listan,YearTextField1.getText(),YearTextField2.getText());
+                                otherController.SEARCH(listan,YearTextField1.getText(),YearTextField2.getText());
                             }
                         }
                     }
@@ -151,5 +156,3 @@ public class FXMLMovieSceneController implements Initializable {
      
      
     }
-
-  
