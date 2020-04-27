@@ -125,15 +125,20 @@ public class FXMLMovieSceneController implements Initializable {
                         }
                     }
                     else{
-                        if(YearTextField1.getText().isEmpty() || YearTextField1.getText().isBlank()){
-                            otherController.searchYearMaxGenre(listan,YearTextField2.getText());
+                        if((YearTextField1.getText().isEmpty() || YearTextField1.getText().isBlank()) && (YearTextField2.getText().isEmpty() || YearTextField2.getText().isBlank())){
+                            otherController.searchGenre(listan);
                         }
                         else{
-                            if(YearTextField2.getText().isEmpty() || YearTextField2.getText().isBlank()){
-                                otherController.searchYearMinGenre(listan,YearTextField1.getText());
+                            if(YearTextField1.getText().isEmpty() || YearTextField1.getText().isBlank()){
+                                otherController.searchYearMaxGenre(listan,YearTextField2.getText());
                             }
                             else{
-                                otherController.searchYearMinMaxGenre(listan,YearTextField1.getText(),YearTextField2.getText());
+                                if(YearTextField2.getText().isEmpty() || YearTextField2.getText().isBlank()){
+                                    otherController.searchYearMinGenre(listan,YearTextField1.getText());
+                                }
+                                else{
+                                    otherController.searchYearMinMaxGenre(listan,YearTextField1.getText(),YearTextField2.getText());
+                                }
                             }
                         }
                     }

@@ -19,6 +19,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import org.hibernate.Hibernate;
 import org.hibernate.Session;
 import org.hibernate.query.Query;
 
@@ -78,6 +79,8 @@ public class FXMLDisplayerController implements Initializable {
             for(int i=0;i<movies.size();i++){
                 amovies.add(movies.get(i));
             }
+            amovies.forEach(a -> System.out.println(a.toString()));
+            
             implementList(amovies);
         } catch (Exception e) {
             e.printStackTrace();
@@ -92,6 +95,8 @@ public class FXMLDisplayerController implements Initializable {
             for(int i=0;i<movies.size();i++){
                 amovies.add(movies.get(i));
             }
+            amovies.forEach(a -> System.out.println(a.toString()));
+            
             implementList(amovies);
         } catch (Exception e) {
             e.printStackTrace();
@@ -107,6 +112,8 @@ public class FXMLDisplayerController implements Initializable {
             for(int i=0;i<movies.size();i++){
                 amovies.add(movies.get(i));
             }
+            
+            amovies.forEach(a -> System.out.println(a.toString()));
             implementList(amovies);
         } catch (Exception e) {
             e.printStackTrace();
@@ -127,6 +134,7 @@ public class FXMLDisplayerController implements Initializable {
                 amovies.add(movies.get(i));
             }
         
+            amovies.forEach(a -> System.out.println(a.toString()));
             implementList(amovies);
         }
         catch(Exception e){
@@ -147,6 +155,8 @@ public class FXMLDisplayerController implements Initializable {
                 amovies.add(movies.get(i));
             
             }
+            amovies.forEach(a -> System.out.println(a.toString()));
+            
             implementList(amovies);
         
         } catch (Exception e) {
@@ -167,7 +177,7 @@ public class FXMLDisplayerController implements Initializable {
                 amovies.add(movies.get(i));
             
             }
-            
+            amovies.forEach(a -> System.out.println(a.toString()));
             implementList(amovies);
         
         } catch (Exception e) {
@@ -185,12 +195,32 @@ public class FXMLDisplayerController implements Initializable {
                 amovies.add(movies.get(i));
             }
             
+            amovies.forEach(a -> System.out.println(a.toString()));
             implementList(amovies);
         
         } catch (Exception e) {
             e.printStackTrace();
         }
         
+    }
+    
+    public void searchGenre(List<String> genres){
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+            String hqlstatement = "select b from Movie b join b.genres a where a.genre in (:asearch) group by b having count(a)=:genre_count";
+            List<Movie> movies = session.createQuery(hqlstatement, Movie.class)
+                    .setParameterList("asearch",genres)
+                    .setInteger("genre_count",genres.size())
+                    .list();
+            ObservableList<Movie> amovies = FXCollections.observableArrayList();
+            for(int i=0;i<movies.size();i++){
+                amovies.add(movies.get(i));
+            }
+            amovies.forEach(a -> System.out.println(a.toString()));
+            implementList(amovies);
+        
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
     
     
