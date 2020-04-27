@@ -54,91 +54,144 @@ public class FXMLDisplayerController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         
     }
+     
     
-     private String hqlstatement = "";
-     
-     
-     
-    public void theSearch(){
-        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
-           //String hqlstatement = "select b from Movie b join b.genres a where a.genre = '" + "Comedy" + "'";
-            List<Movie> movies = session.createQuery(hqlstatement, Movie.class).list();
-            ObservableList<Movie> amovies = FXCollections.observableArrayList();
-            for(int i=0;i<movies.size();i++){
-                amovies.add(movies.get(i));
-            }
-            amovies.forEach(a -> System.out.println(a.toString()));
-            //this.list = amovies;
-            idColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
-            movieNameColumn.setCellValueFactory(new PropertyValueFactory<>("movieName"));
-            yearColumn.setCellValueFactory(new PropertyValueFactory<>("year"));
-            ratingColumn.setCellValueFactory(new PropertyValueFactory<>("rating"));
-            genresColumn.setCellValueFactory(new PropertyValueFactory<>("genres"));
-            table.setItems(amovies);
-            
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+    public void implementList(ObservableList<Movie> theList){
+        //if(theList.size() == 0){ print out alarm that no movies has those inputs or smth else}
+        idColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
+        movieNameColumn.setCellValueFactory(new PropertyValueFactory<>("movieName"));
+        yearColumn.setCellValueFactory(new PropertyValueFactory<>("year"));
+        ratingColumn.setCellValueFactory(new PropertyValueFactory<>("rating"));
+        genresColumn.setCellValueFactory(new PropertyValueFactory<>("genres"));
+        
+        table.setItems(theList);
+        
     }
     
     
     
     public void searchYearMax(String max){
-       setHqlstatement("select b from Movie b where b.year < " + Integer.parseInt(max));
-    }
-    
-    public void searchYearMin(String min){
-       setHqlstatement("select b from Movie b where b.year > " + Integer.parseInt(min));
-    }
-    
-    public void searchMaxMin(String min, String max){
-       setHqlstatement("select b from Movie b where b.year >" + Integer.parseInt(min) + "and b.year <" + Integer.parseInt(max));
-    }
-    
-    //Trying to implement this one but for now just have it as a comment
-    
-    public void searchYearMaxGenre(List<String> genres, String max){
-            /*try(Session session = HibernateUtil.getSessionFactory().openSession()){
-            //setHqlstatement("select b from Movie b join b.genres a where a.genre = 'Action' and a.genre = 'Sci-Fi'");
-            //String hqlstatement = "select b from Movie b join b.genres a where a.genre = '" + "Comedy" + "'";
-            //String hejsan = "select b from Movie b join b.genres a where a.genre in (:search)";
-            String hejsan = "select b from Movie b join b.genres a where a.genre in (:asearch) and a.genre in (:bsearch)";
-            List<Movie> movies = session.createQuery(hejsan, Movie.class)
-                    .setParameter("asearch",genres.get(0))
-                    .setParameter("bsearch",genres.get(1))
-                    .list();
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+            String hqlstatement = "select b from Movie b where b.year < " + Integer.parseInt(max);
+            List<Movie> movies = session.createQuery(hqlstatement, Movie.class).list();
             ObservableList<Movie> amovies = FXCollections.observableArrayList();
             for(int i=0;i<movies.size();i++){
                 amovies.add(movies.get(i));
             }
-            amovies.forEach(a -> System.out.println(a.toString()));
+            implementList(amovies);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    
+    public void searchYearMin(String min){
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+            String hqlstatement = "select b from Movie b where b.year > " + Integer.parseInt(min);
+            List<Movie> movies = session.createQuery(hqlstatement, Movie.class).list();
+            ObservableList<Movie> amovies = FXCollections.observableArrayList();
+            for(int i=0;i<movies.size();i++){
+                amovies.add(movies.get(i));
+            }
+            implementList(amovies);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        
+    }
+    
+    public void searchMaxMin(String min, String max){
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+            String hqlstatement = "select b from Movie b where b.year >" + Integer.parseInt(min) + "and b.year <" + Integer.parseInt(max);
+            List<Movie> movies = session.createQuery(hqlstatement, Movie.class).list();
+            ObservableList<Movie> amovies = FXCollections.observableArrayList();
+            for(int i=0;i<movies.size();i++){
+                amovies.add(movies.get(i));
+            }
+            implementList(amovies);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        
+    }
+    
+    
+    public void searchYearMaxGenre(List<String> genres, String max){
+        try(Session session = HibernateUtil.getSessionFactory().openSession()){
+            String hqlstatement = "select b from Movie b join b.genres a where a.genre in (:asearch) group by b having count(a)=:genre_count and b.year < " + Integer.parseInt(max);
+            List<Movie> movies = session.createQuery(hqlstatement, Movie.class)
+                .setParameterList("asearch",genres)
+                .setInteger("genre_count",genres.size())
+                .list();
+            ObservableList<Movie> amovies = FXCollections.observableArrayList();
+            for(int i=0;i<movies.size();i++){
+                amovies.add(movies.get(i));
+            }
+        
+            implementList(amovies);
+        }
+        catch(Exception e){
+            e.printStackTrace();
+        }
+    }
+    
+    public void searchYearMinGenre(List<String> genres, String min){
+       //setHqlstatement("select * from Movie where year >"+min+"and genre =="+genres);
+       try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+            String hqlstatement = "select b from Movie b join b.genres a where a.genre in (:asearch) group by b having count(a)=:genre_count and b.year > " + Integer.parseInt(min);
+            List<Movie> movies = session.createQuery(hqlstatement, Movie.class)
+                    .setParameterList("asearch",genres)
+                    .setInteger("genre_count",genres.size())
+                    .list();
+            ObservableList<Movie> amovies = FXCollections.observableArrayList();
+            for(int i=0;i<movies.size();i++){
+                amovies.add(movies.get(i));
             
             }
-            catch(Exception e){
-                e.printStackTrace();
-            }*/
+            implementList(amovies);
+        
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
     
-    public void searchYearMinGenre(List genres, String min){
-       setHqlstatement("select * from Movie where year >"+min+"and genre =="+genres);      
+    public void searchYearMinMaxGenre(List<String> genres, String min, String max){
+       //setHqlstatement("select * from Movie where year >"+min+"and year<"+max+"and genre=="+genres);
+       try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+            String hqlstatement = "select b from Movie b join b.genres a where a.genre in (:asearch) group by b having count(a)=:genre_count and b.year > " + Integer.parseInt(min) + "and b.year < " + Integer.parseInt(max);
+            List<Movie> movies = session.createQuery(hqlstatement, Movie.class)
+                    .setParameterList("asearch",genres)
+                    .setInteger("genre_count",genres.size())
+                    .list();
+            ObservableList<Movie> amovies = FXCollections.observableArrayList();
+            for(int i=0;i<movies.size();i++){
+                amovies.add(movies.get(i));
+            
+            }
+            
+            implementList(amovies);
+        
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
     
-    public void SEARCH(List genres, String min, String max){
-       setHqlstatement("select * from Movie where year >"+min+"and year<"+max+"and genre=="+genres);
+    public void searchAll(){
+        //setHqlstatement("select * from Movie");
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+            String hqlstatement = "from Movie b select b";
+            List<Movie> movies = session.createQuery(hqlstatement, Movie.class).list();
+            ObservableList<Movie> amovies = FXCollections.observableArrayList();
+            for(int i=0;i<movies.size();i++){
+                amovies.add(movies.get(i));
+            }
+            
+            implementList(amovies);
+        
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        
     }
-    
-    public void search(){
-        setHqlstatement("select * from Movie");
-    }
-    
-    public String getHqlstatement() {
-        return hqlstatement;
-    }
-    
-    public void setHqlstatement(String hqlstatement) {
-        this.hqlstatement = hqlstatement;
-    }
-    
     
     
     
