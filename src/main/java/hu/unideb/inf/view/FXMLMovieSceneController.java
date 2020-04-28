@@ -48,14 +48,15 @@ public class FXMLMovieSceneController implements Initializable {
     private ListView GenreListView;
     
     @FXML
-    private TextField YearTextField1,YearTextField2;
+    private TextField YearTextField1,YearTextField2;    
+    
     @FXML
     private TextField Alarm;
     
     @FXML
     private AnchorPane Welcome,Search,Info;
      
-      @FXML 
+    @FXML 
     private void handleButtonAction(MouseEvent event){
         
         if(event.getTarget() == Btn_Welcome){
@@ -77,12 +78,14 @@ public class FXMLMovieSceneController implements Initializable {
         }
         
         if(event.getTarget() == Btn_Play){
-        Search.setVisible(true);
-        Welcome.setVisible(false);
-        Info.setVisible(false);
+            Search.setVisible(true);
+            Welcome.setVisible(false);
+            Info.setVisible(false);
         }
         
-        if(event.getTarget() == Btn_SearchFinder) other();
+        if(event.getTarget() == Btn_SearchFinder){
+            other();
+        }
     
     }
     

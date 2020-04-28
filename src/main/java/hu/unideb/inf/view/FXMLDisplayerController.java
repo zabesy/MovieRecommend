@@ -73,7 +73,7 @@ public class FXMLDisplayerController implements Initializable {
     
     public void searchYearMax(String max){
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
-            String hqlstatement = "select b from Movie b where b.year < " + Integer.parseInt(max);
+            String hqlstatement = "select b from Movie b where b.year <= " + Integer.parseInt(max) + " order by b.rating desc";
             List<Movie> movies = session.createQuery(hqlstatement, Movie.class).list();
             ObservableList<Movie> amovies = FXCollections.observableArrayList();
             for(int i=0;i<movies.size();i++){
@@ -89,7 +89,7 @@ public class FXMLDisplayerController implements Initializable {
     
     public void searchYearMin(String min){
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
-            String hqlstatement = "select b from Movie b where b.year > " + Integer.parseInt(min);
+            String hqlstatement = "select b from Movie b where b.year >= " + Integer.parseInt(min) + " order by b.rating desc";
             List<Movie> movies = session.createQuery(hqlstatement, Movie.class).list();
             ObservableList<Movie> amovies = FXCollections.observableArrayList();
             for(int i=0;i<movies.size();i++){
@@ -106,7 +106,7 @@ public class FXMLDisplayerController implements Initializable {
     
     public void searchMaxMin(String min, String max){
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
-            String hqlstatement = "select b from Movie b where b.year >" + Integer.parseInt(min) + "and b.year <" + Integer.parseInt(max);
+            String hqlstatement = "select b from Movie b where b.year >= " + Integer.parseInt(min) + " and b.year <= " + Integer.parseInt(max) + " order by b.rating desc";
             List<Movie> movies = session.createQuery(hqlstatement, Movie.class).list();
             ObservableList<Movie> amovies = FXCollections.observableArrayList();
             for(int i=0;i<movies.size();i++){
@@ -124,7 +124,7 @@ public class FXMLDisplayerController implements Initializable {
     
     public void searchYearMaxGenre(List<String> genres, String max){
         try(Session session = HibernateUtil.getSessionFactory().openSession()){
-            String hqlstatement = "select b from Movie b join b.genres a where a.genre in (:asearch) group by b having count(a)=:genre_count and b.year < " + Integer.parseInt(max);
+            String hqlstatement = "select b from Movie b join b.genres a where a.genre in (:asearch) group by b having count(a)=:genre_count and b.year <= " + Integer.parseInt(max) + " order by b.rating desc";
             List<Movie> movies = session.createQuery(hqlstatement, Movie.class)
                 .setParameterList("asearch",genres)
                 .setInteger("genre_count",genres.size())
@@ -143,9 +143,8 @@ public class FXMLDisplayerController implements Initializable {
     }
     
     public void searchYearMinGenre(List<String> genres, String min){
-       //setHqlstatement("select * from Movie where year >"+min+"and genre =="+genres);
        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
-            String hqlstatement = "select b from Movie b join b.genres a where a.genre in (:asearch) group by b having count(a)=:genre_count and b.year > " + Integer.parseInt(min);
+            String hqlstatement = "select b from Movie b join b.genres a where a.genre in (:asearch) group by b having count(a)=:genre_count and b.year >= " + Integer.parseInt(min) + " order by b.rating desc";
             List<Movie> movies = session.createQuery(hqlstatement, Movie.class)
                     .setParameterList("asearch",genres)
                     .setInteger("genre_count",genres.size())
@@ -165,9 +164,8 @@ public class FXMLDisplayerController implements Initializable {
     }
     
     public void searchYearMinMaxGenre(List<String> genres, String min, String max){
-       //setHqlstatement("select * from Movie where year >"+min+"and year<"+max+"and genre=="+genres);
        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
-            String hqlstatement = "select b from Movie b join b.genres a where a.genre in (:asearch) group by b having count(a)=:genre_count and b.year > " + Integer.parseInt(min) + "and b.year < " + Integer.parseInt(max);
+            String hqlstatement = "select b from Movie b join b.genres a where a.genre in (:asearch) group by b having count(a)=:genre_count and b.year >= " + Integer.parseInt(min) + " and b.year <= " + Integer.parseInt(max) + " order by b.rating desc";
             List<Movie> movies = session.createQuery(hqlstatement, Movie.class)
                     .setParameterList("asearch",genres)
                     .setInteger("genre_count",genres.size())
@@ -186,9 +184,8 @@ public class FXMLDisplayerController implements Initializable {
     }
     
     public void searchAll(){
-        //setHqlstatement("select * from Movie");
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
-            String hqlstatement = "from Movie b select b";
+            String hqlstatement = "from Movie b select b order by b.rating desc";
             List<Movie> movies = session.createQuery(hqlstatement, Movie.class).list();
             ObservableList<Movie> amovies = FXCollections.observableArrayList();
             for(int i=0;i<movies.size();i++){
@@ -206,7 +203,7 @@ public class FXMLDisplayerController implements Initializable {
     
     public void searchGenre(List<String> genres){
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
-            String hqlstatement = "select b from Movie b join b.genres a where a.genre in (:asearch) group by b having count(a)=:genre_count";
+            String hqlstatement = "select b from Movie b join b.genres a where a.genre in (:asearch) group by b having count(a)=:genre_count order by b.rating desc";
             List<Movie> movies = session.createQuery(hqlstatement, Movie.class)
                     .setParameterList("asearch",genres)
                     .setInteger("genre_count",genres.size())
