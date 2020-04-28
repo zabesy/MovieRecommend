@@ -48,14 +48,15 @@ public class FXMLMovieSceneController implements Initializable {
     private ListView GenreListView;
     
     @FXML
-    private TextField YearTextField1,YearTextField2;
+    private TextField YearTextField1,YearTextField2;    
+    
     @FXML
     private TextField Alarm;
     
     @FXML
     private AnchorPane Welcome,Search,Info;
      
-      @FXML 
+    @FXML 
     private void handleButtonAction(MouseEvent event){
         
         if(event.getTarget() == Btn_Welcome){
@@ -77,12 +78,14 @@ public class FXMLMovieSceneController implements Initializable {
         }
         
         if(event.getTarget() == Btn_Play){
-        Search.setVisible(true);
-        Welcome.setVisible(false);
-        Info.setVisible(false);
+            Search.setVisible(true);
+            Welcome.setVisible(false);
+            Info.setVisible(false);
         }
         
-        if(event.getTarget() == Btn_SearchFinder) other();
+        if(event.getTarget() == Btn_SearchFinder){
+            other();
+        }
     
     }
     
@@ -125,15 +128,20 @@ public class FXMLMovieSceneController implements Initializable {
                         }
                     }
                     else{
-                        if(YearTextField1.getText().isEmpty() || YearTextField1.getText().isBlank()){
-                            otherController.searchYearMaxGenre(listan,YearTextField2.getText());
+                        if((YearTextField1.getText().isEmpty() || YearTextField1.getText().isBlank()) && (YearTextField2.getText().isEmpty() || YearTextField2.getText().isBlank())){
+                            otherController.searchGenre(listan);
                         }
                         else{
-                            if(YearTextField2.getText().isEmpty() || YearTextField2.getText().isBlank()){
-                                otherController.searchYearMinGenre(listan,YearTextField1.getText());
+                            if(YearTextField1.getText().isEmpty() || YearTextField1.getText().isBlank()){
+                                otherController.searchYearMaxGenre(listan,YearTextField2.getText());
                             }
                             else{
-                                otherController.searchYearMinMaxGenre(listan,YearTextField1.getText(),YearTextField2.getText());
+                                if(YearTextField2.getText().isEmpty() || YearTextField2.getText().isBlank()){
+                                    otherController.searchYearMinGenre(listan,YearTextField1.getText());
+                                }
+                                else{
+                                    otherController.searchYearMinMaxGenre(listan,YearTextField1.getText(),YearTextField2.getText());
+                                }
                             }
                         }
                     }
