@@ -130,7 +130,7 @@
                   <Font size="20.0" />
                </font>
             </Label>
-            <ImageView fx:id="Btn_SearchFinder" fitHeight="66.0" fitWidth="68.0" layoutX="357.0" layoutY="326.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="Btn_SearchFinder" fitHeight="66.0" fitWidth="68.0" layoutX="357.0" layoutY="326.0" onMousePressed="#handleButtonAction" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@Icons/SearchFinder.png" />
                </image>
