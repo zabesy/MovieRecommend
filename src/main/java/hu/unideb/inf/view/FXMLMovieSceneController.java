@@ -81,6 +81,11 @@ public class FXMLMovieSceneController implements Initializable {
             Search.setVisible(true);
             Welcome.setVisible(false);
             Info.setVisible(false);
+        }if(event.getTarget()==Btn_Exit){
+        Search.setVisible(false);
+        Welcome.setVisible(false);
+        Info.setVisible(false);
+        
         }
         
         if(event.getTarget() == Btn_SearchFinder){

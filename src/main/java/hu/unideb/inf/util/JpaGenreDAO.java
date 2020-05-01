@@ -5,8 +5,9 @@
  */
 package hu.unideb.inf.util;
 
+import hu.unideb.inf.model.Genre;
 import java.util.List;
-import net.javaguides.hibernate.entity.Genre;
+
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
@@ -30,6 +31,7 @@ public class JpaGenreDAO implements GenreDAO {
         System.out.println("DAO closed...");
     }
 
+    @Override
     public void saveGenre(Genre a) {
         try {
             transaction = session.beginTransaction();
@@ -42,6 +44,7 @@ public class JpaGenreDAO implements GenreDAO {
         }
     }
 
+    @Override
     public void deleteGenre(Genre a) {
         try {
             transaction = session.beginTransaction();
@@ -54,6 +57,7 @@ public class JpaGenreDAO implements GenreDAO {
         }
     }
     
+    @Override
     public void updateGenre(Genre a) {
         try {
             transaction = session.beginTransaction();
@@ -71,5 +75,7 @@ public class JpaGenreDAO implements GenreDAO {
         Query query = session.createQuery(hql);
         return query.list();
     }
+
+   
     
 }

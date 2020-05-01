@@ -1,9 +1,13 @@
+hu\unideb\inf\view\FXMLDisplayerController.class
+hu\unideb\inf\util\JpaMovieDAO.class
+hu\unideb\inf\util\MovieDAO.class
+hu\unideb\inf\util\GenreDAO.class
+hu\unideb\inf\util\HibernateUtil.class
 hu\unideb\inf\model\Genre.class
 hu\unideb\inf\view\FXMLMovieSceneController.class
 hu\unideb\inf\MainApp$2.class
 hu\unideb\inf\model\Movie.class
+hu\unideb\inf\util\JpaGenreDAO.class
 hu\unideb\inf\MainApp$1.class
-hu\unideb\inf\view\FXMLDisplayerController.class
 hu\unideb\inf\MainApp.class
 hu\unideb\inf\model\Model.class
-hu\unideb\inf\util\HibernateUtil.class

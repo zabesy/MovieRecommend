@@ -5,8 +5,9 @@
  */
 package hu.unideb.inf.util;
 
+import hu.unideb.inf.model.Movie;
 import java.util.List;
-import net.javaguides.hibernate.entity.Movie;
+
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
@@ -30,6 +31,7 @@ public class JpaMovieDAO implements MovieDAO {
         System.out.println("DAO closed...");
     }
 
+    @Override
     public void saveMovie(Movie a) {
         try {
             transaction = session.beginTransaction();
@@ -42,6 +44,7 @@ public class JpaMovieDAO implements MovieDAO {
         }
     }
 
+    @Override
     public void deleteMovie(Movie a) {
         try {
             transaction = session.beginTransaction();
@@ -54,6 +57,7 @@ public class JpaMovieDAO implements MovieDAO {
         }
     }
     
+    @Override
     public void updateMovie(Movie a) {
         try {
             transaction = session.beginTransaction();
@@ -65,3 +69,11 @@ public class JpaMovieDAO implements MovieDAO {
             }
         }
     }
+
+   
+
+    @Override
+    public List<Movie> getMovies() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+}

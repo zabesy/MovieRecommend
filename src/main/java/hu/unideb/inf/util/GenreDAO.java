@@ -7,10 +7,8 @@ package hu.unideb.inf.util;
 
 import hu.unideb.inf.model.Genre;
 import java.util.List;
-import net.javaguides.hibernate.entity.Animal;
-import org.hibernate.Session;
-import org.hibernate.Transaction;
-import org.hibernate.query.Query;
+
+
 
 /**
  *
