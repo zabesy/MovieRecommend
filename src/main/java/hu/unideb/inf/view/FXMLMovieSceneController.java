@@ -35,7 +35,7 @@ public class FXMLMovieSceneController implements Initializable {
     }
     
     ObservableList list =  FXCollections.observableArrayList("Action","Comedy","Children", 
-                                                             "Drama","Sci-fi","Thriller",
+                                                             "Drama","Sci-Fi","Thriller",
                                                              "Adventure","Animation","Fantasy",
                                                              "Romance","Crime","Horror",
                                                              "Mystery","Documentary","War","Western");

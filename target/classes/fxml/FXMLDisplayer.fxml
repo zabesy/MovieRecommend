@@ -4,15 +4,14 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane id="AnchorPane" prefHeight="546.0" prefWidth="796.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hu.unideb.inf.view.FXMLDisplayerController">
+<AnchorPane id="AnchorPane" prefHeight="493.0" prefWidth="712.0" stylesheets="@../fxmldisplayer.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hu.unideb.inf.view.FXMLDisplayerController">
    <children>
-      <TableView fx:id="table" prefHeight="546.0" prefWidth="796.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <TableView fx:id="table" prefHeight="493.0" prefWidth="712.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <columns>
-            <TableColumn fx:id="idColumn" prefWidth="51.0" text="Id" />
-            <TableColumn fx:id="movieNameColumn" prefWidth="254.0" text="Movie" />
-            <TableColumn fx:id="yearColumn" minWidth="0.0" prefWidth="82.0" text="Year" />
-            <TableColumn fx:id="ratingColumn" prefWidth="95.0" text="Average Rating" />
-            <TableColumn fx:id="genresColumn" prefWidth="312.0" text="Genres" />
+            <TableColumn fx:id="movieNameColumn" prefWidth="283.0" text="Movie" />
+            <TableColumn fx:id="yearColumn" minWidth="0.0" prefWidth="66.0" text="Year" />
+            <TableColumn fx:id="ratingColumn" prefWidth="64.0" text="Rating" />
+            <TableColumn fx:id="genresColumn" prefWidth="298.0" text="Genres" />
         </columns>
       </TableView>
    </children>

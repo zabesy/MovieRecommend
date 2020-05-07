@@ -76,7 +76,6 @@ public class JpaMovieDAO implements MovieDAO {
        String hql = "FROM hu.unideb.inf.model.Movie";
        Query query = session.createQuery(hql);
        return query.list();
-        
     }
     
 }
