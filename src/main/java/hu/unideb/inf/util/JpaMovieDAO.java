@@ -71,9 +71,12 @@ public class JpaMovieDAO implements MovieDAO {
     }
 
    
-
     @Override
     public List<Movie> getMovies() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+       String hql = "FROM hu.unideb.inf.model.Movie";
+       Query query = session.createQuery(hql);
+       return query.list();
+        
     }
+    
 }

@@ -71,7 +71,7 @@ public class JpaGenreDAO implements GenreDAO {
     }
     
     public List<Genre> getGenres(){
-        String hql = "FROM net.javaguides.hibernate.entity.Genre";
+        String hql = "FROM hu.unideb.inf.model.Genre";
         Query query = session.createQuery(hql);
         return query.list();
     }
