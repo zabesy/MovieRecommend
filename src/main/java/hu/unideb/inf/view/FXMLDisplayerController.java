@@ -34,7 +34,7 @@ public class FXMLDisplayerController implements Initializable {
     
     @FXML private TableView<Movie> table = new TableView<Movie>();
     
-    @FXML private TableColumn<Movie,Integer>idColumn;
+    //@FXML private TableColumn<Movie,Integer>idColumn;
 
     @FXML private TableColumn<Movie,String>movieNameColumn;
 
@@ -59,7 +59,7 @@ public class FXMLDisplayerController implements Initializable {
     
     public void implementList(ObservableList<Movie> theList){
         //if(theList.size() == 0){ print out alarm that no movies has those inputs or smth else}
-        idColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
+        //idColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
         movieNameColumn.setCellValueFactory(new PropertyValueFactory<>("movieName"));
         yearColumn.setCellValueFactory(new PropertyValueFactory<>("year"));
         ratingColumn.setCellValueFactory(new PropertyValueFactory<>("rating"));

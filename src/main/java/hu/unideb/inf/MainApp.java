@@ -74,8 +74,8 @@ public class MainApp extends Application {
         BufferedReader br = new BufferedReader(new FileReader("data\\combinedMovieData.txt"));
         String theline;
         br.readLine();
-        //GenreDAO genreDAO = new JpaGenreDAO();
-        //MovieDAO movieDAO = new JpaMovieDAO();
+        GenreDAO genreDAO = new JpaGenreDAO();
+        MovieDAO movieDAO = new JpaMovieDAO();
         while((theline = br.readLine())!=null){
             String[] values =theline.split(",",-1);
             if(!values[3].isBlank() || !values[3].isEmpty()){
