@@ -70,7 +70,7 @@ public class MainApp extends Application {
      * @param args the command line arguments
      */
     public static void main(String[] args) throws FileNotFoundException, IOException{
-        List<Movie> list = new ArrayList<>();
+        //List<Movie> list = new ArrayList<>();
         BufferedReader br = new BufferedReader(new FileReader("data\\combinedMovieData.txt"));
         String theline;
         br.readLine();
@@ -81,18 +81,21 @@ public class MainApp extends Application {
             if(!values[3].isBlank() || !values[3].isEmpty()){
             String[] avalues = values[3].split(Pattern.quote("|"),-1);
             Movie movie = new Movie(values[1],Integer.parseInt(values[2]),Double.parseDouble(values[4]));
-            //movieDAO.saveMovie(movie);
+            movieDAO.saveMovie(movie);
             for(int i=0;i<avalues.length;i++){
                 Genre gen = new Genre(avalues[i]);
                 movie.addGenre(gen);
-                //genreDAO.saveGenre(gen);
+                genreDAO.saveGenre(gen);
             }
-            list.add(movie);
+            //list.add(movie);
             }
         }
         
         br.close();
-        Transaction transaction = null;
+        
+        genreDAO.close();
+        movieDAO.close();
+        /*Transaction transaction = null;
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             transaction = session.beginTransaction();
             for(Movie a:list){
@@ -104,7 +107,7 @@ public class MainApp extends Application {
                 transaction.rollback();
             }
             e.printStackTrace();
-        }
+        }*/
         
         launch(args);
     }
