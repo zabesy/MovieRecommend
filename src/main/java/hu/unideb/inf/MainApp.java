@@ -3,7 +3,11 @@ package hu.unideb.inf;
 import hu.unideb.inf.model.Genre;
 import hu.unideb.inf.model.Model;
 import hu.unideb.inf.model.Movie;
+import hu.unideb.inf.util.GenreDAO;
 import hu.unideb.inf.util.HibernateUtil;
+import hu.unideb.inf.util.JpaGenreDAO;
+import hu.unideb.inf.util.JpaMovieDAO;
+import hu.unideb.inf.util.MovieDAO;
 import hu.unideb.inf.view.FXMLMovieSceneController;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
@@ -70,13 +74,18 @@ public class MainApp extends Application {
         BufferedReader br = new BufferedReader(new FileReader("data\\combinedMovieData.txt"));
         String theline;
         br.readLine();
+        //GenreDAO genreDAO = new JpaGenreDAO();
+        //MovieDAO movieDAO = new JpaMovieDAO();
         while((theline = br.readLine())!=null){
             String[] values =theline.split(",",-1);
             if(!values[3].isBlank() || !values[3].isEmpty()){
             String[] avalues = values[3].split(Pattern.quote("|"),-1);
             Movie movie = new Movie(values[1],Integer.parseInt(values[2]),Double.parseDouble(values[4]));
+            //movieDAO.saveMovie(movie);
             for(int i=0;i<avalues.length;i++){
-                movie.addGenre(new Genre(avalues[i]));
+                Genre gen = new Genre(avalues[i]);
+                movie.addGenre(gen);
+                //genreDAO.saveGenre(gen);
             }
             list.add(movie);
             }
